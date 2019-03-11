@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public JoyStick jst;
-
+    public PlayerCharacter pc;
+    /// <summary>
+    /// Rigidbody2D of PlayerCharacter
+    /// </summary>
     private Rigidbody2D rb2d;
 
     [Range(0.0f, 100.0f)]
@@ -14,22 +16,28 @@ public class CharacterMovement : MonoBehaviour
     private void Awake()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
+        pc = FindObjectOfType<PlayerCharacter>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void FixedUpdate()
     {
-        
+        pc.Move();
+        pc.Attack();
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Move the player based on the input of joystick. Ver 1.0.0
+    /// </summary>
+    public void MoveByJst(Vector2 mjst)
     {
-        Walk();
+        rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
     }
 
-    void Walk()
+    public void AttackByJst(Vector2 ajst, Weapon wp)
     {
-        rb2d.MovePosition((Vector2)this.transform.position +  jst.value * Time.deltaTime * moveSpeed);
+        if(ajst != new Vector2(0.0f, 0.0f))
+        {
+            wp.Attack();
+        }
     }
 }

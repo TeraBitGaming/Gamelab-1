@@ -6,16 +6,27 @@ using UnityEngine.UI;
 
 public class JoyStick : ScrollRect
 {
-    //Radius of the joystick.
+    /// <summary>
+    /// Radius of the joystick.
+    /// </summary>
     private float rad = 0;
-    //Output value of the joystick.
+    /// <summary>
+    /// Output value of the joystick.
+    /// </summary>
     public Vector2 value;
-    
+
+    /// <summary>
+    /// 1)Set the radius of the joystick area.
+    /// </summary>
     void Start()
     {
         rad = (transform as RectTransform).sizeDelta.x * 0.45f;
     }
 
+    /// <summary>
+    /// Drag-able function from [ScrollRect(Class)]
+    /// </summary>
+    /// <param name="eventData"></param>
     public override void OnDrag(PointerEventData eventData)
     {
         //Position of the stick.
