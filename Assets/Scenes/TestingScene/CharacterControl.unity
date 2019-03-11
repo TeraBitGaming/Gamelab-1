@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 768095434}
   - component: {fileID: 768095435}
   - component: {fileID: 768095436}
+  - component: {fileID: 768095437}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -416,11 +417,31 @@ MonoBehaviour:
   HP: 0
   EG: 0
   usingWeapon:
+    weapId: 0
     weapName: 
     weapDescription: 
     weapType: 0
     weapDamage: 0
     attackRate: 0
+--- !u!95 &768095437
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768095431}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88c94c309f362874080f3c00f6b2060a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &973029263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,12 +1192,12 @@ PrefabInstance:
     - target: {fileID: 7428503351726439153, guid: ab56010f067b999488a4cbc7a1947cb5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000008627211
+      value: -0.0000019358079
       objectReference: {fileID: 0}
     - target: {fileID: 7428503351726439153, guid: ab56010f067b999488a4cbc7a1947cb5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000008547134
+      value: -0.0000004282307
       objectReference: {fileID: 0}
     - target: {fileID: 7428503351726439154, guid: ab56010f067b999488a4cbc7a1947cb5,
         type: 3}
