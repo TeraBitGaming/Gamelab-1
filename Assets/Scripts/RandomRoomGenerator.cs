@@ -62,8 +62,8 @@ public class RandomRoomGenerator : MonoBehaviour
                 for (int c = 0; c < rooms.Length; c++){
                     for(int d = 0; d < 4; d++){
                         currentRoom = rooms[c];
-                        currentRoom = gameObject.transform.GetChild(0);
-                        currentRoom.transform.gameObject.GetComponent<InformationHolder>().possibleRooms[d];
+                        //currentRoom = gameObject.transform.GetChild(0);
+                        //currentRoom.transform.gameObject.GetComponent<InformationHolder>().possibleRooms[d];
                     }
                 }
                 //I need to create a way to read & compare possiblerooms to rooms. 2 for-loops should do the trick,

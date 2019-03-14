@@ -32,6 +32,11 @@ public class PlayerCharacter : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        HPCheck();
+    }
+
     public PlayerCharacter()
     {
 
@@ -44,12 +49,29 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Attack()
     {
-        cm.AttackByJst(ajst.value, usingWeapon);
+        if (Mathf.Abs(ajst.value.x) > 0.5f || Mathf.Abs(ajst.value.y) > 0.5f)
+        {
+            cm.AttackByJst(ajst.value, usingWeapon);
+
+        }
     }
 
     public void Ability()
     {
         Debug.Log("Ability Used");
+    }
+
+    private void HPCheck()
+    {
+        if (this.HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        this.gameObject.SetActive(false);
     }
 
 }

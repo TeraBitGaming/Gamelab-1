@@ -35,9 +35,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void AttackByJst(Vector2 ajst, Weapon wp)
     {
-        if(ajst != new Vector2(0.0f, 0.0f))
-        {
-            wp.Attack();
-        }
+        //print(ajst);
+        wp.Attack();
     }
 }
