@@ -11,19 +11,20 @@ public class TempEnemy : MonoBehaviour
     [Range(0.0f, 1.0f)]
     private float moveSpeedEnemy = 0.05f;
 
+    private int HP = 50;
+    private int damage = 20;
+
     private void Awake()
     {
         pc = FindObjectOfType<PlayerCharacter>();
         rb2d = this.GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         ApproachPlayer();
@@ -31,9 +32,11 @@ public class TempEnemy : MonoBehaviour
 
     void ApproachPlayer()
     {
-        TurnToPlayer();
-        rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));
-        //Debug.Log(Vector2.Distance(this.transform.position, pc.gameObject.transform.position));
+        if (Vector2.Distance(this.transform.position, pc.transform.position) < 15)
+        {
+            TurnToPlayer();
+            rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));
+        }
     }
 
     /// <summary>
@@ -55,7 +58,7 @@ public class TempEnemy : MonoBehaviour
     {
         if(collision.gameObject == pc.gameObject)
         {
-            pc.HP -= 10;
+            pc.HP -= damage;
         }
     }
 }

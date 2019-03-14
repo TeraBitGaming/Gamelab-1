@@ -36,6 +36,7 @@ public class Weapon
 
     public void Attack()
     {
+        
         Debug.Log("Attacked");
     }
 }

@@ -22,7 +22,7 @@ public class PlayerCharacter : MonoBehaviour
     private void Awake()
     {
         cm = FindObjectOfType<CharacterMovement>();
-        HP = 100;
+        HP = 200;
         EG = 100;
     }
 
