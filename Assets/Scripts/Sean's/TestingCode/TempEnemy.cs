@@ -14,6 +14,7 @@ public class TempEnemy : MonoBehaviour
     private int HP = 50;
     private int damage = 20;
 
+
     private void Awake()
     {
         pc = FindObjectOfType<PlayerCharacter>();
@@ -22,15 +23,15 @@ public class TempEnemy : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        ApproachPlayer();
+       
     }
 
-    void ApproachPlayer()
+    public void ApproachPlayer()
     {
         if (Vector2.Distance(this.transform.position, pc.transform.position) < 15)
         {
