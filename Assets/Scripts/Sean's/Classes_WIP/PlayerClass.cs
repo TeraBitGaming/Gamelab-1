@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerChara : Character
+public class PlayerClass : Character
 {
     [SerializeField]
     private int pcId;
@@ -19,10 +19,7 @@ public class PlayerChara : Character
     [SerializeField]
     private WeaponNew pcUsingWeapon;
 
-    [SerializeField]
-    private float pcMoveSpeed;
-
-    public PlayerChara(int pcId, string pcName, int hitPoint, Ability abilityA, Ability abilityB, Passive passive, WeaponNew usingWeapon, float moveSpeed) : base(hitPoint)
+    public PlayerClass(int pcId, string pcName, int hitPoint = 100, Ability abilityA = null, Ability abilityB = null, Passive passive = null, WeaponNew usingWeapon = null) : base(hitPoint)
     {
         this.pcId = pcId;
         this.pcName = pcName;
@@ -30,7 +27,6 @@ public class PlayerChara : Character
         this.pcAbilityB = abilityB;
         this.pcPassive = passive;
         this.pcUsingWeapon = usingWeapon;
-        this.pcMoveSpeed = moveSpeed;
     }
 
 
@@ -62,16 +58,6 @@ public class PlayerChara : Character
     public void SetPCUsingWeapon (WeaponNew newWeapon)
     {
         this.pcUsingWeapon = newWeapon;
-    }
-
-    public float GetPCMoveSpeed()
-    {
-        return this.pcMoveSpeed;
-    }
-
-    public void MultiplySpeedBy(float ratio)
-    {
-        this.pcMoveSpeed *= ratio;
     }
 
     public void UseAbilityA()

@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Please attach this script AND charamove.cs to the player sprite(WIP).
     /// </summary>
-    public PlayerChara playerClass;
-    public CharacterMovement movement;
+    private PlayerClass playerClass;
+    private CharacterMovement movement;
+
+    private void Awake()
+    {
+        playerClass = null;
+
+    }
 }

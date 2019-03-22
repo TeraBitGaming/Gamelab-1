@@ -15,6 +15,8 @@ public class JoyStick : ScrollRect
     /// </summary>
     public Vector2 value;
 
+    public Vector2 record;
+
     /// <summary>
     /// 1)Set the radius of the joystick area.
     /// </summary>
@@ -38,6 +40,7 @@ public class JoyStick : ScrollRect
     {
         JoystickLimit();
         UpdateOutputValue();
+        UpdateFinalDirection();
     }
 
     /// <summary>
@@ -59,5 +62,19 @@ public class JoyStick : ScrollRect
     void UpdateOutputValue()
     {
         value = content.localPosition / rad;
+    }
+
+    void UpdateFinalDirection()
+    {
+        if(value.x > 0.1f || value.x < -0.1f)
+        {
+            record.x = value.normalized.x;
+            print("record is " + record);
+        }
+        if(value.y > 0.1f || value.y < -0.1f)
+        {
+            record.y = value.normalized.y;
+            print("record is " + record);
+        }
     }
 }
