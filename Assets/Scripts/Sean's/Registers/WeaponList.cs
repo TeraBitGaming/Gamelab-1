@@ -16,6 +16,6 @@ public class WeaponList : MonoBehaviour
 
     private void instantiateWeaponList()
     {
-        weaponList.Add(new Weapon(1, "Testing Weapon", Weapon.WeaponType.Range, 0, 1.0f, "Weapon for test."));
+        weaponList.Add(new Weapon(0, "Testing Weapon", Weapon.WeaponType.Range, 0, 1.0f));
     }
 }
