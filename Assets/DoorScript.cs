@@ -6,12 +6,14 @@ public class DoorScript : MonoBehaviour
 {
     private GameObject temporaryGameObject;
     private float distance = 1.5f;
-    // public bool vertical = false;
+    public bool set2f = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (set2f == true){
+            distance = 2f;
+        }
     }
 
     // Update is called once per frame

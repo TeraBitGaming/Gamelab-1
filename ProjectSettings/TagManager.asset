@@ -7,6 +7,10 @@ TagManager:
   - Door
   - Spawn Point
   - Rooms
+  - Blacksmith
+  - House
+  - Library
+  - Inn
   layers:
   - Default
   - TransparentFX
