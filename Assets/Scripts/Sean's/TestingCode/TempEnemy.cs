@@ -62,4 +62,13 @@ public class TempEnemy : MonoBehaviour
             pc.HP -= damage;
         }
     }
+
+    public void GetHit(int atk)
+    {
+        this.HP -= atk;
+        if(this.HP <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 }
