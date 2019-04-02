@@ -13,6 +13,15 @@ public class CharacterMovement : MonoBehaviour
     [Range(0.0f, 100.0f)]
     public float moveSpeed = 20.0f;
 
+    //!
+    private float attackDistance = 1.5f;
+
+    //!
+    private int attack = 20;
+
+    //!
+    public float cooldown = 0;
+
     private void Awake()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
@@ -23,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
     {
         pc.Move();
         pc.Attack();
+        UpdateCooldown();
     }
 
     /// <summary>
@@ -35,7 +45,32 @@ public class CharacterMovement : MonoBehaviour
 
     public void AttackByJst(Vector2 ajst, Weapon wp)
     {
-        //print(ajst);
-        wp.Attack();
+        if(cooldown <= 0)
+        {
+
+            RaycastHit2D atkRay = Physics2D.Raycast(pc.gameObject.transform.position, ajst, attackDistance, LayerMask.GetMask("Enemies"));
+            Debug.DrawRay(pc.gameObject.transform.position, ajst * attackDistance, Color.yellow, 3);
+
+            if (atkRay.collider != null)
+            {
+                TempEnemy enemy;
+                enemy = atkRay.collider.GetComponent<TempEnemy>();
+
+                enemy.GetHit(attack);
+                enemy.GetComponent<Rigidbody2D>().AddForce(ajst.normalized * 500 * Time.deltaTime);
+                
+            }
+            print("Player Attacked!");
+            cooldown = 0.5f;
+            //Debug.DrawRay(pc.gameObject.transform.position, ajst.normalized * 1.5f, Color.red, 1f);
+        }
+    }
+
+    private void UpdateCooldown()
+    {
+        if(cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
     }
 }
