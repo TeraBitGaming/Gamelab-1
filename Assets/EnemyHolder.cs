@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EnemyHolder : MonoBehaviour
 {
-    public GameObject[] enemies;
+    public GameObject[] spawnableEnemies;
 }
