@@ -51,7 +51,7 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (Mathf.Abs(ajst.value.x) > 0.1f || Mathf.Abs(ajst.value.y) > 0.1f)
         {
-            cm.AttackByJst(ajst.value, usingWeapon);
+            cm.AttackByJst(ajst.value, null);
         }
     }
 

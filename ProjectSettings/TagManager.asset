@@ -24,6 +24,7 @@ TagManager:
   - PostProcessing
   - Enemies
   - Camera
+  - Bullet
   - Player
   - 
   - 
