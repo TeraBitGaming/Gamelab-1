@@ -33,7 +33,7 @@ public class TempEnemy : MonoBehaviour
 
     public void ApproachPlayer()
     {
-        if (Vector2.Distance(this.transform.position, pc.transform.position) < 15)
+        if (Vector2.Distance(this.transform.position, pc.transform.position) < 38)
         {
             TurnToPlayer();
             rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));

@@ -13,19 +13,28 @@ public class CharacterMovement : MonoBehaviour
     [Range(0.0f, 100.0f)]
     public float moveSpeed = 20.0f;
 
+    /**
     //!
     private float attackDistance = 1.5f;
 
     //!
     private int attack = 20;
+    **/
 
     //!
     public float cooldown = 0;
+    
+
+    //!
+    private TempBulletPool tbp;
 
     private void Awake()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
         pc = FindObjectOfType<PlayerCharacter>();
+
+        //!
+        tbp = FindObjectOfType<TempBulletPool>();
     }
 
     private void FixedUpdate()
@@ -47,7 +56,10 @@ public class CharacterMovement : MonoBehaviour
     {
         if(cooldown <= 0)
         {
-
+            /**
+             * 
+             * This piece of code is used for melee attack, which is not going to be used in the future version.
+             * 
             RaycastHit2D atkRay = Physics2D.Raycast(pc.gameObject.transform.position, ajst, attackDistance, LayerMask.GetMask("Enemies"));
             Debug.DrawRay(pc.gameObject.transform.position, ajst * attackDistance, Color.yellow, 3);
 
@@ -61,7 +73,14 @@ public class CharacterMovement : MonoBehaviour
                 
             }
             print("Player Attacked!");
+            **/
+
+            //From here is the shooting function.
+
+            tbp.ShootTo(ajst);
             cooldown = 0.5f;
+
+
             //Debug.DrawRay(pc.gameObject.transform.position, ajst.normalized * 1.5f, Color.red, 1f);
         }
     }
