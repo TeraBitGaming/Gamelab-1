@@ -19,7 +19,7 @@ public class TempBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,12 +38,4 @@ public class TempBullet : MonoBehaviour
         tbp.BulletPool.Enqueue(this.gameObject);
     }
 
-    private Vector3 vec3ToTar;
-    private float angle;
-    void TurnToPlayer()
-    {
-        vec3ToTar = pc.gameObject.transform.position - this.transform.position;
-        angle = Mathf.Atan2(vec3ToTar.y, vec3ToTar.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
 }
