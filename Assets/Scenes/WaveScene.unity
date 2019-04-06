@@ -348,12 +348,12 @@ PrefabInstance:
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00006696908
+      value: -0.000063809974
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000009582293
+      value: 0.0000002576171
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878816612532, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -438,6 +438,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042336034, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
+      propertyPath: bulletCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042336034, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1957539169490872092, guid: d6283dbbc13d42f41ab7119a1d8f2eea,
+        type: 3}
+    - target: {fileID: 3593467879220987927, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 703b271d7c91d4e4b8828041bbeaccc9,
+        type: 3}
+    - target: {fileID: 3593467879220987925, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
@@ -782,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableEnemies:
-  - {fileID: 7547812241050599018, guid: 41d40630c54e9a446be3a4f055d8faed, type: 3}
+  - {fileID: 6456398902440772105, guid: c381f09a6f0741c44919f5ec8def16ae, type: 3}
 --- !u!4 &1390598627
 Transform:
   m_ObjectHideFlags: 0
@@ -1472,7 +1492,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1727b2d361f228948be3ee6a9eef635c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

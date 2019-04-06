@@ -11,7 +11,10 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody2D rb2d;
 
     [Range(0.0f, 100.0f)]
-    public float moveSpeed = 20.0f;
+    public float moveSpeed = 5.0f;
+
+    private bool facingRight = true;
+    private bool facingBack = false;
 
     /**
     //!
@@ -42,6 +45,7 @@ public class CharacterMovement : MonoBehaviour
         pc.Move();
         pc.Attack();
         UpdateCooldown();
+        FlipPC();
     }
 
     /// <summary>
@@ -50,6 +54,35 @@ public class CharacterMovement : MonoBehaviour
     public void MoveByJst(Vector2 mjst)
     {
         rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+
+        if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
+        {
+            pc.gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+        }
+        else
+        {
+            pc.gameObject.GetComponent<Animator>().SetBool("isWalking", false);
+        }
+
+        if (mjst.x > 0.1)
+        {
+            //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            facingRight = true;
+        }
+        if (mjst.x < -0.1)
+        {
+            //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            facingRight = false;
+        }
+
+        if (mjst.y > 0.1)
+        {
+            facingBack = true;
+        }
+        if (mjst.y < -0.1)
+        {
+            facingBack = false;
+        }
     }
 
     public void AttackByJst(Vector2 ajst, Weapon wp)
@@ -77,6 +110,26 @@ public class CharacterMovement : MonoBehaviour
 
             //From here is the shooting function.
 
+            if (ajst.x > 0.1)
+            {
+                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                facingRight = true;
+            }
+            if (ajst.x < -0.1)
+            {
+                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                facingRight = false;
+            }
+
+            if (ajst.y > 0.1)
+            {
+                facingBack = true;
+            }
+            if (ajst.y < -0.1)
+            {
+                facingBack = false;
+            }
+
             tbp.ShootTo(ajst);
             cooldown = 0.5f;
 
@@ -90,6 +143,27 @@ public class CharacterMovement : MonoBehaviour
         if(cooldown > 0)
         {
             cooldown -= Time.deltaTime;
+        }
+    }
+
+    private void FlipPC()
+    {
+        if(facingRight)
+        {
+            pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        if(facingBack)
+        {
+            pc.GetComponent<Animator>().SetBool("facingBack", true);
+        }
+        else
+        {
+            pc.GetComponent<Animator>().SetBool("facingBack", false);
         }
     }
 }

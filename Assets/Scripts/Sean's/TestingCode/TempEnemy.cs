@@ -9,7 +9,7 @@ public class TempEnemy : MonoBehaviour
 
     [SerializeField]
     [Range(0.0f, 1.0f)]
-    private float moveSpeedEnemy = 0.05f;
+    private float moveSpeedEnemy = 0.03f;
 
     private int HP = 50;
     private int damage = 20;
@@ -28,15 +28,19 @@ public class TempEnemy : MonoBehaviour
 
     void Update()
     {
-       
+        FlipSprite();
+        ApproachPlayer();
     }
 
     public void ApproachPlayer()
     {
-        if (Vector2.Distance(this.transform.position, pc.transform.position) < 38)
+        if(pc)
         {
-            TurnToPlayer();
-            rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));
+            if (Vector2.Distance(this.transform.position, pc.transform.position) < 38)
+            {
+                TurnToPlayer();
+                rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));
+            }
         }
     }
 
@@ -69,6 +73,33 @@ public class TempEnemy : MonoBehaviour
         if(this.HP <= 0)
         {
             this.gameObject.SetActive(false);
+        }
+    }
+
+    private void FlipSprite()
+    {
+        if(pc)
+        {
+            Vector2 pos = pc.gameObject.transform.position;
+            if (pos.x > this.transform.position.x)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+
+            if (pos.y > this.transform.position.y)
+            {
+                GetComponent<Animator>().SetBool("facingBack", true);
+            }
+            else
+            {
+                GetComponent<Animator>().SetBool("facingBack", false);
+
+            }
+
         }
     }
 }

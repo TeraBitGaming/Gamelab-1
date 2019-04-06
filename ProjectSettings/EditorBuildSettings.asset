@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Town.unity
     guid: 5dbc708d8007aaf4aac7d5ddcf77d698
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RandomGeneration.unity
     guid: 4cc447d7f16e05b4db05f1b3820af825
+  - enabled: 1
+    path: Assets/Scenes/WaveScene.unity
+    guid: ce6bc3ec6420ea94bb4a643aa183ded7
   m_configObjects: {}

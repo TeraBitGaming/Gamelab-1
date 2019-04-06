@@ -35,7 +35,7 @@ public class TempBulletPool : MonoBehaviour
     {
         for(int i = 0; i < bulletCount; i++)
         {
-            var bullet = Instantiate(prefab);
+            var bullet = Instantiate(prefab, this.gameObject.transform);
             bullet.SetActive(false);
             BulletPool.Enqueue(bullet);
         }
@@ -47,6 +47,6 @@ public class TempBulletPool : MonoBehaviour
         bullet.SetActive(true);
         bullet.transform.position = FindObjectOfType<PlayerCharacter>().transform.position;
 
-        bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 100000 * Time.deltaTime);
+        bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 50000 * Time.deltaTime);
     }
 }

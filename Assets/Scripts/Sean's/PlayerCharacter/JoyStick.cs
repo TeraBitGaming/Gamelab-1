@@ -40,7 +40,6 @@ public class JoyStick : ScrollRect
     {
         JoystickLimit();
         UpdateOutputValue();
-        UpdateFinalDirection();
     }
 
     /// <summary>
@@ -64,17 +63,4 @@ public class JoyStick : ScrollRect
         value = content.localPosition / rad;
     }
 
-    void UpdateFinalDirection()
-    {
-        if(value.x > 0.1f || value.x < -0.1f)
-        {
-            record.x = value.normalized.x;
-            //print("record is " + record);
-        }
-        if(value.y > 0.1f || value.y < -0.1f)
-        {
-            record.y = value.normalized.y;
-            //print("record is " + record);
-        }
-    }
 }
