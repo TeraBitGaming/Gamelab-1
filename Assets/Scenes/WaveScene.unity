@@ -348,12 +348,12 @@ PrefabInstance:
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00006039141
+      value: 0.00006696908
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000043812456
+      value: 0.0000009582293
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878816612532, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -822,7 +822,7 @@ MonoBehaviour:
   - {fileID: 1657806070}
   - {fileID: 267774200}
   - {fileID: 1731140560}
-  currentWave: 9
+  currentWave: -1
 --- !u!1 &1444861529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
