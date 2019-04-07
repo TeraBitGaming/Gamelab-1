@@ -268,12 +268,12 @@ PrefabInstance:
     - target: {fileID: 3593467879513609447, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3593467879513609447, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.132
       objectReference: {fileID: 0}
     - target: {fileID: 3593467879513609447, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -338,22 +338,22 @@ PrefabInstance:
     - target: {fileID: 3593467878448413402, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00000951051
+      value: 0.000001604604
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878448413402, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000011114253
+      value: 0.0000068632908
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00009226635
+      value: 0.000058305093
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000001987266
+      value: -0.000008188244
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878816612532, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -434,10 +434,40 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3593467879220987921, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593467879220987921, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593467879220987921, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593467879220987921, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3593467879220987928, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593467879220987926, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593467878493057438, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 1042336034, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
       propertyPath: bulletCount
@@ -1313,7 +1343,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.75
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1419,7 +1449,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 8}
+  m_Size: {x: 8, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &2028058417
 GameObject:
