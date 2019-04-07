@@ -29,9 +29,9 @@ public class WaveManager : MonoBehaviour
                 spawnPoints[b].GetComponent<enemySpawner>().StartCoroutine("spawnEnemy");
             }
 
-            Debug.Log("Start");
+            Debug.Log("Start waiting");
             yield return new WaitForSeconds(1.0f);
-            Debug.Log("Done");
+            Debug.Log("Done waiting");
         }
         canSpawn = true;
         yield break;
