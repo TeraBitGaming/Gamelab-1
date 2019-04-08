@@ -8,6 +8,8 @@ public class EnemyPool : MonoBehaviour
     public List<GameObject> prefabs = new List<GameObject>();
     public List<GameObject> enemyPool = new List<GameObject>();
 
+    public GameObject smokeEffect;
+
     [SerializeField]
     private int enemyCount = 20;
 
@@ -49,5 +51,9 @@ public class EnemyPool : MonoBehaviour
 
         nmy.SetActive(true);
         nmy.transform.position = position;
+    }
+
+    public void DeathAt(Vector2 position){
+        Instantiate(smokeEffect, position, Quaternion.identity);
     }
 }

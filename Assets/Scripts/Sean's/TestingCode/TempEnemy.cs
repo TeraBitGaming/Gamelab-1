@@ -108,6 +108,8 @@ public class TempEnemy : MonoBehaviour
     private void Die()
     {
         comboM.AddToCombo();
+        Vector2 deathPos = new Vector2 (transform.position.x, transform.position.y);
+        emyp.DeathAt(deathPos);
         this.gameObject.SetActive(false);
         emyp.enemyPool.Add(this.gameObject);
     }
