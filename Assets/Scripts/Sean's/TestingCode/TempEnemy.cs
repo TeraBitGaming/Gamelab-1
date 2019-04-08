@@ -9,16 +9,20 @@ public class TempEnemy : MonoBehaviour
 
     [SerializeField]
     [Range(0.0f, 1.0f)]
+    
     private float moveSpeedEnemy = 0.03f;
+    private ComboManager comboM;
 
     private int HP = 50;
     private int damage = 20;
+
 
 
     private void Awake()
     {
         pc = FindObjectOfType<PlayerCharacter>();
         rb2d = this.GetComponent<Rigidbody2D>();
+        comboM = FindObjectOfType<ComboManager>();
     }
 
     void Start()
@@ -64,6 +68,7 @@ public class TempEnemy : MonoBehaviour
         if(collision.gameObject == pc.gameObject)
         {
             pc.HP -= damage;
+            comboM.ResetCombo();
         }
     }
 
@@ -73,6 +78,7 @@ public class TempEnemy : MonoBehaviour
         if(this.HP <= 0)
         {
             this.gameObject.SetActive(false);
+            comboM.AddToCombo();
         }
     }
 

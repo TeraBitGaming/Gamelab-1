@@ -35,7 +35,10 @@ public class CharacterMovement : MonoBehaviour
     
     //here come wesley's additions!
     [SerializeField]
-    private ParticleSystem pS;
+    private SmokeChainer pS;
+
+    [SerializeField]
+    private Transform pSH;
 
     private void Awake()
     {
@@ -137,8 +140,8 @@ public class CharacterMovement : MonoBehaviour
             }
 
             tbp.ShootTo(ajst);
-            pS.Play();
-            // pS.gameObject.transform.rotation = new Vector3(ajst.x, 90, 0);
+            pS.PlayPS();
+            pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
             cooldown = 0.5f;
 
 

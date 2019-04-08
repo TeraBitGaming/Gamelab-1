@@ -14,8 +14,8 @@ public class PlayerCharacter : MonoBehaviour
     public JoyStick mjst;
     public JoyStick ajst;
 
-    public int HP;//Player Hitpoint.
-    public int EG;//Player Energe.
+    public int HP; //Player Hitpoint.
+    public int EG; //Player Energe.
 
     public Weapon usingWeapon;
 
