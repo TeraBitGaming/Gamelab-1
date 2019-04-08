@@ -52,7 +52,5 @@ public class TempBulletPool : MonoBehaviour
         bullet.transform.rotation = Quaternion.AngleAxis(ang, Vector3.forward);
 
         bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 50000 * Time.deltaTime);
-
-
     }
 }

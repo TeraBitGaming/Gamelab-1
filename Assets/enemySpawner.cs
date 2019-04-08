@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
+    public EnemyPool enemyPool;
     public GameObject enemyDataHolder;
     private int R;
 
@@ -42,6 +43,6 @@ public class enemySpawner : MonoBehaviour
     private void InstantiateEnemy()
     {
         R = Random.Range(0, enemies.Length);
-        Instantiate(enemies[R], transform.position, Quaternion.identity);
+        enemyPool.SpawnTo(transform.position);
     }
 }

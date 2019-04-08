@@ -7,10 +7,6 @@ TagManager:
   - Door
   - Spawn Point
   - Rooms
-  - Blacksmith
-  - House
-  - Library
-  - Inn
   - Enemy
   layers:
   - Default
@@ -26,7 +22,6 @@ TagManager:
   - Camera
   - Bullet
   - Player
-  - 
   - 
   - 
   - 

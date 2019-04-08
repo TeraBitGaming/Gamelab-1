@@ -31,6 +31,12 @@ public class CharacterMovement : MonoBehaviour
     //!
     private TempBulletPool tbp;
 
+
+    
+    //here come wesley's additions!
+    [SerializeField]
+    private ParticleSystem pS;
+
     private void Awake()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
@@ -131,6 +137,8 @@ public class CharacterMovement : MonoBehaviour
             }
 
             tbp.ShootTo(ajst);
+            pS.Play();
+            // pS.gameObject.transform.rotation = new Vector3(ajst.x, 90, 0);
             cooldown = 0.5f;
 
 
