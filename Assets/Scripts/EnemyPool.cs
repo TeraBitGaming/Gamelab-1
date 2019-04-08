@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyPool : MonoBehaviour
 {
-    public Queue<GameObject> enemyPool = new Queue<GameObject>();
-
-    public GameObject prefab;
+    //public Queue<GameObject> enemyPool = new Queue<GameObject>();
+    public List<GameObject> prefabs = new List<GameObject>();
+    public List<GameObject> enemyPool = new List<GameObject>();
 
     [SerializeField]
     private int enemyCount = 20;
@@ -30,17 +30,23 @@ public class EnemyPool : MonoBehaviour
 
     void instantiatePool()
     {
-        for(int i = 0; i < enemyCount; i++)
+        for(int j = 0; j < prefabs.Count; j++)
         {
-            var nmy = Instantiate(prefab, this.gameObject.transform);
-            nmy.SetActive(false);
-            enemyPool.Enqueue(nmy);
+            for (int i = 0; i < enemyCount; i++)
+            {
+                var nmy = Instantiate(prefabs[j], this.gameObject.transform);
+                nmy.SetActive(false);
+                enemyPool.Add(nmy);
+            }
         }
     }
 
     public void SpawnTo(Vector2 position)
     {
-        var nmy = enemyPool.Dequeue();
+        int nmyId = Random.Range(0, enemyPool.Count);
+        var nmy = enemyPool[nmyId];
+        enemyPool.RemoveAt(nmyId);
+
         nmy.SetActive(true);
         nmy.transform.position = position;
     }

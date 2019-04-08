@@ -6,15 +6,22 @@ public class TempEnemy : MonoBehaviour
 {
     private PlayerCharacter pc;
     private Rigidbody2D rb2d;
+    private EnemyPool emyp;
 
     [SerializeField]
     [Range(0.0f, 1.0f)]
     
-    private float moveSpeedEnemy = 0.03f;
+    private float moveSpeedEnemy = 0.3f;
     private ComboManager comboM;
 
-    private int HP = 50;
-    private int damage = 20;
+    [SerializeField]
+    private int HitPoint;
+
+    [SerializeField]
+    private int HP;
+
+    [SerializeField]
+    private int damage;
 
 
 
@@ -23,6 +30,12 @@ public class TempEnemy : MonoBehaviour
         pc = FindObjectOfType<PlayerCharacter>();
         rb2d = this.GetComponent<Rigidbody2D>();
         comboM = FindObjectOfType<ComboManager>();
+        emyp = FindObjectOfType<EnemyPool>();
+    }
+
+    private void OnEnable()
+    {
+        HP = HitPoint;
     }
 
     void Start()
@@ -42,25 +55,9 @@ public class TempEnemy : MonoBehaviour
         {
             if (Vector2.Distance(this.transform.position, pc.transform.position) < 38)
             {
-                TurnToPlayer();
                 rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));
             }
         }
-    }
-
-    /// <summary>
-    /// Turn the direction to player function, change to direction switch when enemy spritesheet is done.
-    /// </summary>
-    private Vector3 vec3ToTar;
-    private float angle;
-    void TurnToPlayer()
-    {
-        /**
-        vec3ToTar = pc.gameObject.transform.position - this.transform.position;
-        angle = Mathf.Atan2(vec3ToTar.y, vec3ToTar.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        **/
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -77,8 +74,7 @@ public class TempEnemy : MonoBehaviour
         this.HP -= atk;
         if(this.HP <= 0)
         {
-            this.gameObject.SetActive(false);
-            comboM.AddToCombo();
+           Die();
         }
     }
 
@@ -107,5 +103,12 @@ public class TempEnemy : MonoBehaviour
             }
 
         }
+    }
+
+    private void Die()
+    {
+        comboM.AddToCombo();
+        this.gameObject.SetActive(false);
+        emyp.enemyPool.Add(this.gameObject);
     }
 }

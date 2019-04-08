@@ -31,6 +31,8 @@ public class CharacterMovement : MonoBehaviour
     //!
     private TempBulletPool tbp;
 
+    private float weaponCD = 1;
+
 
     
     //here come wesley's additions!
@@ -140,9 +142,10 @@ public class CharacterMovement : MonoBehaviour
             }
 
             tbp.ShootTo(ajst);
+
             pS.PlayPS();
             pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
-            cooldown = 0.5f;
+            cooldown = weaponCD;
 
 
             //Debug.DrawRay(pc.gameObject.transform.position, ajst.normalized * 1.5f, Color.red, 1f);
@@ -176,5 +179,10 @@ public class CharacterMovement : MonoBehaviour
         {
             pc.GetComponent<Animator>().SetBool("facingBack", false);
         }
+    }
+
+    public void ChangeWeaponCD(float cd)
+    {
+        this.weaponCD = cd;
     }
 }
