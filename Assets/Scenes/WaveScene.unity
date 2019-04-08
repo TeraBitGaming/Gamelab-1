@@ -339,7 +339,7 @@ PrefabInstance:
     - target: {fileID: 3593467878448413402, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000001604604
+      value: -0.000021384743
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878448413402, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -349,12 +349,12 @@ PrefabInstance:
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00004522466
+      value: -0.000099413075
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000004340448
+      value: 0.000010916192
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878816612532, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -6263,7 +6263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f08084068c1c9c4ababfd20fa702259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6456398902440772105, guid: c381f09a6f0741c44919f5ec8def16ae, type: 3}
+  prefabs:
+  - {fileID: 6456398902440772105, guid: c381f09a6f0741c44919f5ec8def16ae, type: 3}
+  - {fileID: 5824691408844989633, guid: 91ddf32ddbd3ddf47999d2614f67442e, type: 3}
+  enemyPool: []
   enemyCount: 20
 --- !u!4 &1891593081 stripped
 Transform:
