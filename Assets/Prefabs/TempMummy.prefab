@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedEnemy: 0.01
-  HitPoint: 50
+  HitPoint: 100
   damage: 20

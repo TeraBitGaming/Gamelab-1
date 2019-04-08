@@ -7,9 +7,6 @@ public class TempBullet : MonoBehaviour
     private TempBulletPool tbp;
     private PlayerCharacter pc;
 
-    [SerializeField]
-    private int bulletDamage = 20;
-
     private void Awake()
     {
         tbp = FindObjectOfType<TempBulletPool>();
@@ -32,7 +29,7 @@ public class TempBullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<TempEnemy>())
         {
-            collision.gameObject.GetComponent<TempEnemy>().GetHit(bulletDamage);
+            collision.gameObject.GetComponent<TempEnemy>().GetHit(pc.attack);
         }
         this.gameObject.SetActive(false);
         tbp.BulletPool.Enqueue(this.gameObject);

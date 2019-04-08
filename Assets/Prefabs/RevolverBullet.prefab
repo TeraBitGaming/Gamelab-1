@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5637299946792661457}
   - component: {fileID: 5168026261270752647}
   m_Layer: 11
-  m_Name: BulletOne
+  m_Name: RevolverBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd79bc853671be348b94cc27822c1bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 20
+  bulletDamage: 50

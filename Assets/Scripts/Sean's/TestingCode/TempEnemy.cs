@@ -14,6 +14,7 @@ public class TempEnemy : MonoBehaviour
     [SerializeField]
     private int HitPoint;
 
+    [SerializeField]
     private int HP;
 
     [SerializeField]
