@@ -22,7 +22,7 @@ public class TempHPDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fill = (float)pc.HP / 100f;
+        fill = (float)pc.HP / 200f;
         this.GetComponent<Image>().fillAmount = fill;
     }
 }

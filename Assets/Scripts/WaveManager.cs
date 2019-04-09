@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
 
         for (int a = 0; a <= wave; a++)
         {
-
+            wave *= 3;
             if (a > 5)
             {
                 b = a - 5;
