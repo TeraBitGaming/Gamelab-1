@@ -497,22 +497,22 @@ PrefabInstance:
     - target: {fileID: 3593467878448413402, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0000015948127
+      value: -0.000009218259
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878448413402, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000007568392
+      value: 0.00000768944
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000006085271
+      value: -0.00008513003
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000008238867
+      value: 0.0000070189653
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878816612532, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -720,6 +720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cm
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593467879220987923, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: usingWeapon
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878982254416, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}

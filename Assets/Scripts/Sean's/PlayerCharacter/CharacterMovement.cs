@@ -143,6 +143,8 @@ public class CharacterMovement : MonoBehaviour
 
             tbp.ShootTo(ajst);
 
+            rb2d.AddForce(-ajst * Time.deltaTime * 50000);
+
             pS.PlayPS();
             pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
             cooldown = weaponCD;
