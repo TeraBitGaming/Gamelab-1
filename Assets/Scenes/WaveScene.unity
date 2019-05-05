@@ -507,12 +507,12 @@ PrefabInstance:
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00008513003
+      value: 0.000017236074
       objectReference: {fileID: 0}
     - target: {fileID: 6253766570245477665, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000070189653
+      value: -0.000011874101
       objectReference: {fileID: 0}
     - target: {fileID: 3593467878816612532, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
@@ -708,6 +708,11 @@ PrefabInstance:
       propertyPath: pSH
       value: 
       objectReference: {fileID: 1885106559}
+    - target: {fileID: 3593467879220987925, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: swipeMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1042336033, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -11859,7 +11864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1824752999
 Transform:
   m_ObjectHideFlags: 0
@@ -11957,6 +11962,7 @@ GameObject:
   - component: {fileID: 1897498990}
   - component: {fileID: 1897498989}
   - component: {fileID: 1897498988}
+  - component: {fileID: 1897498993}
   - component: {fileID: 1897498994}
   - component: {fileID: 1897498992}
   - component: {fileID: 1897498991}
@@ -12063,6 +12069,18 @@ TargetJoint2D:
   m_MaxForce: 1000000
   m_DampingRatio: 1
   m_Frequency: 5
+--- !u!114 &1897498993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897498987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ab27d11b8bef2438154682f7b0f3d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1897498994
 Rigidbody2D:
   serializedVersion: 4

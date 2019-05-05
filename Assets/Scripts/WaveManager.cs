@@ -25,13 +25,13 @@ public class WaveManager : MonoBehaviour
             else if (a <= 5)
             {
                 b = a;
-                Debug.Log(b);
+                // Debug.Log(b);
                 spawnPoints[b].GetComponent<enemySpawner>().StartCoroutine("spawnEnemy");
             }
 
-            Debug.Log("Start waiting");
+            // Debug.Log("Start waiting");
             yield return new WaitForSeconds(1.0f);
-            Debug.Log("Done waiting");
+            // Debug.Log("Done waiting");
         }
         canSpawn = true;
         yield break;
@@ -39,7 +39,7 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(canSpawn);
+        // Debug.Log(canSpawn);
 
         if (GameObject.FindWithTag("Enemy") == null && canSpawn == true)
         {

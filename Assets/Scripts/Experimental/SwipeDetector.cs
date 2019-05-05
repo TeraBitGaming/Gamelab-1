@@ -14,6 +14,8 @@ public enum Direction
     upRight = 6,
     downLeft = 9,
     downRight = 10,
+
+    stop = 50,
 }
 
 public class SwipeDetector : MonoBehaviour
@@ -25,11 +27,14 @@ public class SwipeDetector : MonoBehaviour
     public Direction Direction{set;get;}
 
     private Vector3 touchPos;
-    private float vertSwipeResist = 25.0f;
-    private float horSwipeResist = 15.0f;
+    private float vertSwipeResist = .3f;
+    private float horSwipeResist = .2f;
+
+    private Camera cam;
 
     void Start(){
         instance = this;
+        cam = Camera.main;
     }
 
     void FixedUpdate()
@@ -37,11 +42,11 @@ public class SwipeDetector : MonoBehaviour
         Direction = Direction.none;
 
         if (Input.GetMouseButtonDown (0)){
-            touchPos = Input.mousePosition;
+            touchPos = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
         if (Input.GetMouseButtonUp (0)){
-            Vector2 deltaSwipe = touchPos - Input.mousePosition;
+            Vector2 deltaSwipe = touchPos - cam.ScreenToViewportPoint(Input.mousePosition);
 
             if (Mathf.Abs (deltaSwipe.x) > vertSwipeResist){
                 Direction |= (deltaSwipe.x < 0) ? Direction.right : Direction.left;

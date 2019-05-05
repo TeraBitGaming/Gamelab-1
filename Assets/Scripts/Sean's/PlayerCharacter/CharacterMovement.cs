@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ public class CharacterMovement : MonoBehaviour
     private float weaponCD = 1;
 
 
+
     
     //here come wesley's additions!
     [SerializeField]
@@ -41,6 +43,17 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField]
     private Transform pSH;
+
+    [SerializeField]
+    private bool swipeMove;
+
+    [SerializeField]
+    private bool[] moveBools = new bool[] {false, false, false, false};
+    // leftMove; // 0
+    // upMove; // 1
+    // rightMove; // 2
+    // downMove; // 3
+
 
     private void Awake()
     {
@@ -64,35 +77,95 @@ public class CharacterMovement : MonoBehaviour
     /// </summary>
     public void MoveByJst(Vector2 mjst)
     {
+        Debug.Log("moveByJST is called");
+        
+        if(swipeMove == false){
         rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
 
-        if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
-        {
-            pc.gameObject.GetComponent<Animator>().SetBool("isWalking", true);
-        }
-        else
-        {
-            pc.gameObject.GetComponent<Animator>().SetBool("isWalking", false);
-        }
+            if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
+            {
+                pc.gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+            }
+            else
+            {
+                pc.gameObject.GetComponent<Animator>().SetBool("isWalking", false);
+            }
 
-        if (mjst.x > 0.1)
-        {
-            //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            facingRight = true;
-        }
-        if (mjst.x < -0.1)
-        {
-            //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            facingRight = false;
-        }
+            if (mjst.x > 0.1)
+            {
+                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                facingRight = true;
+            }
+            if (mjst.x < -0.1)
+            {
+                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                facingRight = false;
+            }
 
-        if (mjst.y > 0.1)
-        {
-            facingBack = true;
-        }
-        if (mjst.y < -0.1)
-        {
-            facingBack = false;
+            if (mjst.y > 0.1)
+            {
+                facingBack = true;
+            }
+            if (mjst.y < -0.1)
+            {
+                facingBack = false;
+            }
+
+        }  else if(swipeMove == true){
+
+            Debug.Log("swipemove is true");
+
+            if (SwipeDetector.Instance.IsSwiping(Direction.left)){
+
+                changeDirectionBool(0);
+                
+                Debug.Log("left");
+            }
+            else if (SwipeDetector.Instance.IsSwiping(Direction.right)){
+
+                changeDirectionBool(1);
+
+                Debug.Log("right");
+            }
+            else if (SwipeDetector.Instance.IsSwiping(Direction.up)){
+
+                changeDirectionBool(2);
+                Debug.Log("up");
+            }
+            else if (SwipeDetector.Instance.IsSwiping(Direction.down)){
+
+                changeDirectionBool(3);
+                Debug.Log("down");
+            }
+            else if (SwipeDetector.Instance.IsSwiping(Direction.none)){
+                Debug.Log("no input detected");
+            }
+
+            
+            if(moveBools[0] == true){
+
+                mjst = Vector2.left;
+                facingRight = false;
+
+            
+            } else if (moveBools[1] == true){
+                
+                mjst = Vector2.right;
+                facingBack = true;
+            
+            } else if (moveBools[2] == true){
+                
+                
+                mjst = Vector2.up;
+                facingRight = true;
+            
+            } else if (moveBools[3] == true){
+                
+                mjst = Vector2.down;
+                facingBack = false;
+
+            }
+            rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
         }
     }
 
@@ -186,5 +259,19 @@ public class CharacterMovement : MonoBehaviour
     public void ChangeWeaponCD(float cd)
     {
         this.weaponCD = cd;
+    }
+
+    private void changeDirectionBool(int SelectedBool){
+        if(SelectedBool != null){
+            for(int i = 0; i < moveBools.Length; i++){
+                if (i == SelectedBool){
+                    moveBools[i] = true;
+                }
+                else
+                {
+                    moveBools[i] = false;
+                }
+            }  
+        }
     }
 }
