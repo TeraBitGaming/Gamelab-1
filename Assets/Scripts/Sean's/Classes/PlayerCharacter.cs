@@ -54,7 +54,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void Start()
     {
-        usingWeapon = Weapons.Revolver;
+        usingWeapon = Weapons.Minigun;
         instantiateWeaponRatio();
         instantiateWeaponAtk();
     }

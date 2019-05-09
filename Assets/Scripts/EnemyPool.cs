@@ -43,7 +43,7 @@ public class EnemyPool : MonoBehaviour
         }
     }
 
-    public void SpawnTo(Vector2 position)
+    public GameObject SpawnTo(Vector2 position)
     {
         int nmyId = Random.Range(0, enemyPool.Count);
         var nmy = enemyPool[nmyId];
@@ -51,6 +51,8 @@ public class EnemyPool : MonoBehaviour
 
         nmy.SetActive(true);
         nmy.transform.position = position;
+
+        return nmy;
     }
 
     public void DeathAt(Vector2 position){

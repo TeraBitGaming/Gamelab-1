@@ -11,6 +11,8 @@ public class CharacterMovement : MonoBehaviour
     /// </summary>
     private Rigidbody2D rb2d;
 
+    public JoyStick Movejst;
+
     [Range(0.0f, 100.0f)]
     public float moveSpeed = 5.0f;
 
@@ -48,6 +50,9 @@ public class CharacterMovement : MonoBehaviour
     private bool swipeMove;
 
     [SerializeField]
+    private bool minigunMove = true;
+
+    [SerializeField]
     private bool[] moveBools = new bool[] {false, false, false, false};
     // leftMove; // 0
     // upMove; // 1
@@ -80,7 +85,10 @@ public class CharacterMovement : MonoBehaviour
         Debug.Log("moveByJST is called");
         
         if(swipeMove == false){
-        rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+            rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+
+            if (!minigunMove) { Movejst.gameObject.SetActive(true); };
+            if (minigunMove) { Movejst.gameObject.SetActive(false); }
 
             if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
             {
@@ -112,6 +120,8 @@ public class CharacterMovement : MonoBehaviour
             }
 
         }  else if(swipeMove == true){
+
+            Movejst.gameObject.SetActive(false);
 
             Debug.Log("swipemove is true");
 
@@ -216,7 +226,7 @@ public class CharacterMovement : MonoBehaviour
 
             tbp.ShootTo(ajst);
 
-            rb2d.AddForce(-ajst * Time.deltaTime * 50000);
+            if (minigunMove) { rb2d.AddForce(-ajst * Time.deltaTime * 20000); };
 
             pS.PlayPS();
             pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
