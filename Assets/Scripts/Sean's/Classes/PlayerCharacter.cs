@@ -23,7 +23,7 @@ public class PlayerCharacter : MonoBehaviour
         DualPistol,
         Minigun
     }
-    public Weapons usingWeapon;
+    public Weapon usingWeapon;
 
     public int attack = 50;
 
