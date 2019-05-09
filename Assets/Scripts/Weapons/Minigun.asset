@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Minigun
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  damage: 0
-  fireRate: 0
+  damage: 2
+  fireRate: 0.02
   knockbackToEnemy: 0
   knockbackToPlayer: 0

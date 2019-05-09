@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DualPistol
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  damage: 0
-  fireRate: 0
+  damage: 15
+  fireRate: 0.3
   knockbackToEnemy: 0
   knockbackToPlayer: 0
