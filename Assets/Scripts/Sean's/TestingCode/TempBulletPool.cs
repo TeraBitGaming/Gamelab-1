@@ -14,11 +14,6 @@ public class TempBulletPool : MonoBehaviour
     [SerializeField]
     private float bulletSpeed = 2.0f;
 
-    private void Awake()
-    {
-
-    }
-
     // Start is called before the first frame update
     void Start()
     {

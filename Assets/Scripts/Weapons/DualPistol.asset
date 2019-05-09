@@ -15,5 +15,7 @@ MonoBehaviour:
   image: {fileID: 0}
   damage: 15
   fireRate: 0.3
-  knockbackToEnemy: 0
-  knockbackToPlayer: 0
+  knockbackToEnemy: 0.35
+  knockbackToPlayer: 0.35
+  magazine: 16
+  SecCostForReloading: 1

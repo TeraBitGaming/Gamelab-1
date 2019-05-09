@@ -34,11 +34,7 @@ public class CharacterMovement : MonoBehaviour
     //!
     private TempBulletPool tbp;
 
-    private float weaponCD = 1;
-
-
-
-    
+   
     //here come wesley's additions!
     [SerializeField]
     private SmokeChainer pS;
@@ -225,12 +221,13 @@ public class CharacterMovement : MonoBehaviour
             }
 
             tbp.ShootTo(ajst);
+            pc.magazine--;
 
-            if (minigunMove) { rb2d.AddForce(-ajst * Time.deltaTime * 20000); };
+            if (minigunMove) { rb2d.AddForce(-ajst * Time.deltaTime * 100000 * pc.usingWeapon.knockbackToPlayer); };
 
             pS.PlayPS();
             pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
-            cooldown = weaponCD;
+            cooldown = pc.usingWeapon.fireRate;
 
 
             //Debug.DrawRay(pc.gameObject.transform.position, ajst.normalized * 1.5f, Color.red, 1f);
@@ -264,11 +261,6 @@ public class CharacterMovement : MonoBehaviour
         {
             pc.GetComponent<Animator>().SetBool("facingBack", false);
         }
-    }
-
-    public void ChangeWeaponCD(float cd)
-    {
-        this.weaponCD = cd;
     }
 
     private void changeDirectionBool(int SelectedBool){

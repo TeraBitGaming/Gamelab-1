@@ -6,30 +6,15 @@ public class TempWeaponPickUps : MonoBehaviour
 {
     private PlayerCharacter pc;
     [SerializeField]
-    private int wpCode = 0;
+    private Weapon wp;
 
     private void Awake()
     {
         pc = FindObjectOfType<PlayerCharacter>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeWeapon(Weapon wp)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.GetComponent<PlayerCharacter>())
-        {
-            pc.ChangeWeapon(wpCode);
-        }
+        pc.ChangeWeapon(wp);
     }
 }

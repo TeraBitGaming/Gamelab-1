@@ -38,7 +38,7 @@ public class TempEnemy : MonoBehaviour
 
     private void OnEnable()
     {
-        //HP = HitPoint;
+        HP = HitPoint;
     }
 
     void Start()

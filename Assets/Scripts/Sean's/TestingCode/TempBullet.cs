@@ -13,24 +13,27 @@ public class TempBullet : MonoBehaviour
         pc = FindObjectOfType<PlayerCharacter>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<TempEnemy>())
         {
-            collision.gameObject.GetComponent<TempEnemy>().GetHit(pc.attack);
+            collision.gameObject.GetComponent<TempEnemy>().GetHit(pc.usingWeapon.damage);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - this.gameObject.transform.position).normalized * pc.usingWeapon.knockbackToEnemy * 100000 * Time.deltaTime);
+            this.gameObject.SetActive(false);
         }
+        if (collision.gameObject == pc.gameObject)
+        {
+
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+        tbp.BulletPool.Enqueue(this.gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
         this.gameObject.SetActive(false);
         tbp.BulletPool.Enqueue(this.gameObject);
     }
