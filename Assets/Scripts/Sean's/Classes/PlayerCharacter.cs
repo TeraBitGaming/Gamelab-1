@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,56 +18,23 @@ public class PlayerCharacter : MonoBehaviour
     public int HP;//Player Hitpoint.
     public int EG;//Player Energe.
     
-    public enum Weapons
-    {
-        Revolver,
-        DualPistol,
-        Minigun
-    }
-    public Weapons usingWeapon;
-
-    public int attack = 50;
-
-    //Weapon, bullet per sec
-    public Dictionary<Weapons, float> weaponRatio = new Dictionary<Weapons, float>();
-    public Dictionary<Weapons, int> weaponAtk = new Dictionary<Weapons, int>();
-
-    private void instantiateWeaponAtk()
-    {
-        weaponAtk.Add(Weapons.Revolver, 50);
-        weaponAtk.Add(Weapons.DualPistol, 15);
-        weaponAtk.Add(Weapons.Minigun, 2);
-    }
-
-    private void instantiateWeaponRatio()
-    {
-        weaponRatio.Add(Weapons.Revolver, 1);
-        weaponRatio.Add(Weapons.DualPistol, 0.3f);
-        weaponRatio.Add(Weapons.Minigun, 0.02f);
-    }
+    public Weapon usingWeapon;
+    public int magazine;
+    public float reloadTime;
 
     private void Awake()
     {
         cm = FindObjectOfType<CharacterMovement>();
+        magazine = usingWeapon.magazine;
+        reloadTime = usingWeapon.SecCostForReloading;
         HP = 200;
         EG = 100;
-    }
-
-    private void Start()
-    {
-        usingWeapon = Weapons.Revolver;
-        instantiateWeaponRatio();
-        instantiateWeaponAtk();
     }
 
     private void Update()
     {
         HPCheck();
-    }
-
-    public PlayerCharacter()
-    {
-
+        UpdateMagazineReload();
     }
 
     public void Move()
@@ -76,9 +44,33 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Attack()
     {
-        if (Mathf.Abs(ajst.value.x) > 0.1f || Mathf.Abs(ajst.value.y) > 0.1f)
+        if (magazine > 0)
         {
-            cm.AttackByJst(ajst.value, null);
+            if (Mathf.Abs(ajst.value.x) > 0.1f || Mathf.Abs(ajst.value.y) > 0.1f)
+            {
+                cm.AttackByJst(ajst.value, null);
+            }
+        } else
+        {
+            ReloadMagazine();
+        }
+
+    }
+
+    private void ReloadMagazine()
+    {
+        if (reloadTime <= 0)
+        {
+            magazine = usingWeapon.magazine;
+            reloadTime = usingWeapon.SecCostForReloading;
+        }
+    }
+
+    private void UpdateMagazineReload()
+    {
+        if(reloadTime > 0 && magazine <= 0)
+        {
+            reloadTime -= Time.deltaTime;
         }
     }
 
@@ -100,10 +92,10 @@ public class PlayerCharacter : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void ChangeWeapon(int wp)
+    public void ChangeWeapon(Weapon weapon)
     {
-        this.usingWeapon = (Weapons)wp;
-        this.attack = this.weaponAtk[usingWeapon];
-        GetComponent<CharacterMovement>().ChangeWeaponCD(this.weaponRatio[usingWeapon]);
+        this.usingWeapon = weapon;
+        magazine = usingWeapon.magazine;
+        reloadTime = usingWeapon.SecCostForReloading;
     }
 }

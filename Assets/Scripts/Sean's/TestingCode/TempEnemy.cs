@@ -23,6 +23,8 @@ public class TempEnemy : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    public EnemyManager emye;
+
 
 
     private void Awake()
@@ -31,6 +33,7 @@ public class TempEnemy : MonoBehaviour
         rb2d = this.GetComponent<Rigidbody2D>();
         comboM = FindObjectOfType<ComboManager>();
         emyp = FindObjectOfType<EnemyPool>();
+        emye = FindObjectOfType<EnemyManager>();
     }
 
     private void OnEnable()
@@ -110,7 +113,9 @@ public class TempEnemy : MonoBehaviour
         comboM.AddToCombo();
         Vector2 deathPos = new Vector2 (transform.position.x, transform.position.y);
         emyp.DeathAt(deathPos);
+        this.HP = this.HitPoint;
         this.gameObject.SetActive(false);
         emyp.enemyPool.Add(this.gameObject);
+        emye.enemiesOfCurrentWave.Remove(this.gameObject);
     }
 }

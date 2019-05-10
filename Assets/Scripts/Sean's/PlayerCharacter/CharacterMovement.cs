@@ -11,6 +11,8 @@ public class CharacterMovement : MonoBehaviour
     /// </summary>
     private Rigidbody2D rb2d;
 
+    public JoyStick Movejst;
+
     [Range(0.0f, 100.0f)]
     public float moveSpeed = 5.0f;
 
@@ -32,11 +34,7 @@ public class CharacterMovement : MonoBehaviour
     //!
     private TempBulletPool tbp;
 
-    private float weaponCD = 1;
-
-
-
-    
+   
     //here come wesley's additions!
     [SerializeField]
     private SmokeChainer pS;
@@ -46,6 +44,9 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField]
     private bool swipeMove;
+
+    [SerializeField]
+    private bool minigunMove = true;
 
     [SerializeField]
     private bool[] moveBools = new bool[] {false, false, false, false};
@@ -80,7 +81,10 @@ public class CharacterMovement : MonoBehaviour
         Debug.Log("moveByJST is called");
         
         if(swipeMove == false){
-        rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+            rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+
+            if (!minigunMove) { Movejst.gameObject.SetActive(true); };
+            if (minigunMove) { Movejst.gameObject.SetActive(false); }
 
             if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
             {
@@ -112,6 +116,8 @@ public class CharacterMovement : MonoBehaviour
             }
 
         }  else if(swipeMove == true){
+
+            Movejst.gameObject.SetActive(false);
 
             Debug.Log("swipemove is true");
 
@@ -215,12 +221,13 @@ public class CharacterMovement : MonoBehaviour
             }
 
             tbp.ShootTo(ajst);
+            pc.magazine--;
 
-            rb2d.AddForce(-ajst * Time.deltaTime * 50000);
+            if (minigunMove) { rb2d.AddForce(-ajst * Time.deltaTime * 100000 * pc.usingWeapon.knockbackToPlayer); };
 
             pS.PlayPS();
             pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
-            cooldown = weaponCD;
+            cooldown = pc.usingWeapon.fireRate;
 
 
             //Debug.DrawRay(pc.gameObject.transform.position, ajst.normalized * 1.5f, Color.red, 1f);
@@ -254,11 +261,6 @@ public class CharacterMovement : MonoBehaviour
         {
             pc.GetComponent<Animator>().SetBool("facingBack", false);
         }
-    }
-
-    public void ChangeWeaponCD(float cd)
-    {
-        this.weaponCD = cd;
     }
 
     private void changeDirectionBool(int SelectedBool){
