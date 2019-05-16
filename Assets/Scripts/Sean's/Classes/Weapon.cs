@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[SerializeField]
 public class Weapon : ScriptableObject
 {
     public Sprite image;
@@ -12,5 +13,13 @@ public class Weapon : ScriptableObject
     [Range(0,1)]
     public float knockbackToPlayer;
     public int magazine;
-    public float SecCostForReloading;
+    public float secCostForReloading;
+    [SerializeField]
+    public FireModes fireMode;
+    public enum FireModes
+    {
+        Single,
+        ConeSpread
+    };
+    public int SpreadCount;
 }

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   damage: 15
-  fireRate: 0.3
-  knockbackToEnemy: 0.35
-  knockbackToPlayer: 0.35
+  fireRate: 0.33
+  knockbackToEnemy: 0.25
+  knockbackToPlayer: 0.25
   magazine: 16
-  SecCostForReloading: 1
+  secCostForReloading: 1
+  fireMode: 0
+  SpreadCount: 0

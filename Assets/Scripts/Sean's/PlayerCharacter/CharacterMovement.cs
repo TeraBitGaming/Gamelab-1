@@ -72,7 +72,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         pc.Move();
-        pc.Attack();
+        //pc.Attack();
         UpdateCooldown();
         FlipPC();
     }
@@ -239,6 +239,56 @@ public class CharacterMovement : MonoBehaviour
 
 
             //Debug.DrawRay(pc.gameObject.transform.position, ajst.normalized * 1.5f, Color.red, 1f);
+        }
+    }
+
+    public void AttackByTouching(Vector2 dir)
+    {
+        if (cooldown <= 0)
+        {
+            #region Facing Selecter
+            if (dir.x > 0.1)
+            {
+                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                facingRight = true;
+            }
+            if (dir.x < -0.1)
+            {
+                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                facingRight = false;
+            }
+
+            if (dir.y > 0.1)
+            {
+                facingBack = true;
+            }
+            if (dir.y < -0.1)
+            {
+                facingBack = false;
+            }
+            #endregion
+            // add a slight spread to the gun.
+
+            dir = dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread));
+
+            if(pc.usingWeapon.fireMode == Weapon.FireModes.Single)
+            {
+                tbp.ShootTo(dir);
+            }else if(pc.usingWeapon.fireMode == Weapon.FireModes.ConeSpread)
+            {
+                for(int i = 0; i < pc.usingWeapon.SpreadCount; i++)
+                {
+                    tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+                }
+            }
+            
+            pc.magazine--;
+
+            rb2d.AddForce(-dir.normalized * Time.deltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
+
+            pS.PlayPS();
+            pSH.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
+            cooldown = pc.usingWeapon.fireRate;
         }
     }
 

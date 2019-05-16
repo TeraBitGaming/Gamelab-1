@@ -27,7 +27,7 @@ public class TempAmmoDisplay : MonoBehaviour
         }
         else
         {
-            fill = pc.usingWeapon.SecCostForReloading - pc.reloadTime / pc.usingWeapon.SecCostForReloading;
+            fill = pc.usingWeapon.secCostForReloading - pc.reloadTime / pc.usingWeapon.secCostForReloading;
         }
         this.GetComponent<Image>().fillAmount = fill;
     }
