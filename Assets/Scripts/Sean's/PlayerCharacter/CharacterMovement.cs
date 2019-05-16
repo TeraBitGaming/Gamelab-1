@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class CharacterMovement : MonoBehaviour
 
    
     //here come wesley's additions!
+    [SerializeField]
+    private float spread = 0.5f;
+
     [SerializeField]
     private SmokeChainer pS;
 
@@ -219,6 +223,10 @@ public class CharacterMovement : MonoBehaviour
             {
                 facingBack = false;
             }
+            
+            // add a slight spread to the gun.
+
+            ajst = ajst + new Vector2 (Random.Range(-spread, spread), Random.Range(-spread, spread));
 
             tbp.ShootTo(ajst);
             pc.magazine--;

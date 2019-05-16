@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Door
   - Spawn Point
-  - Rooms
   - Enemy
+  - Shooter
   layers:
   - Default
   - TransparentFX
@@ -24,8 +24,8 @@ TagManager:
   - Player
   - Barrier
   - Doors
-  - 
-  - 
+  - Arrows
+  - Shooters
   - 
   - 
   - 
