@@ -21,7 +21,7 @@ public class TempBullet : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - this.gameObject.transform.position).normalized * pc.usingWeapon.knockbackToEnemy * 100000 * Time.deltaTime);
             this.gameObject.SetActive(false);
         }
-        if (collision.gameObject == pc.gameObject)
+        if (collision.gameObject.GetComponent<TempBullet>())
         {
 
         }

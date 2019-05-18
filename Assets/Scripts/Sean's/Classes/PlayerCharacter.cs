@@ -26,7 +26,7 @@ public class PlayerCharacter : MonoBehaviour
     {
         cm = FindObjectOfType<CharacterMovement>();
         magazine = usingWeapon.magazine;
-        reloadTime = usingWeapon.SecCostForReloading;
+        reloadTime = usingWeapon.secCostForReloading;
         HP = 200;
         EG = 100;
     }
@@ -42,14 +42,13 @@ public class PlayerCharacter : MonoBehaviour
         cm.MoveByJst(mjst.value);
     }
 
-    public void Attack()
+    public void Attack(Vector2 dir)
     {
         if (magazine > 0)
         {
-            if (Mathf.Abs(ajst.value.x) > 0.1f || Mathf.Abs(ajst.value.y) > 0.1f)
-            {
-                cm.AttackByJst(ajst.value, null);
-            }
+            //cm.AttackByJst(ajst.value, null);
+            cm.AttackByTouching(dir);
+        
         } else
         {
             ReloadMagazine();
@@ -62,7 +61,7 @@ public class PlayerCharacter : MonoBehaviour
         if (reloadTime <= 0)
         {
             magazine = usingWeapon.magazine;
-            reloadTime = usingWeapon.SecCostForReloading;
+            reloadTime = usingWeapon.secCostForReloading;
         }
     }
 
@@ -96,6 +95,6 @@ public class PlayerCharacter : MonoBehaviour
     {
         this.usingWeapon = weapon;
         magazine = usingWeapon.magazine;
-        reloadTime = usingWeapon.SecCostForReloading;
+        reloadTime = usingWeapon.secCostForReloading;
     }
 }
