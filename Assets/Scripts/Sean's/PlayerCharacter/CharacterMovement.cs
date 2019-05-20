@@ -74,6 +74,11 @@ public class CharacterMovement : MonoBehaviour
         rb2d.AddForce(moveAmount, ForceMode2D.Force);
     }
 
+    private void Update()
+    {
+        rb2d.velocity = Vector2.zero;
+    }
+
     /// <summary>
     /// Move the player based on the input of joystick. Ver 1.0.0
     /// </summary>
@@ -204,16 +209,14 @@ public class CharacterMovement : MonoBehaviour
             #endregion
             // add a slight spread to the gun.
 
-            dir = dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread));
-
             if(pc.usingWeapon.fireMode == Weapon.FireModes.Single)
             {
-                tbp.ShootTo(dir);
+                tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
             }else if(pc.usingWeapon.fireMode == Weapon.FireModes.ConeSpread)
             {
                 for(int i = 0; i < pc.usingWeapon.SpreadCount; i++)
                 {
-                    tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+                    tbp.ShootTo(dir + new Vector2(Random.Range(-2 * spread, 2 * spread), Random.Range(-2 * spread, 2 * spread)));
                 }
             }
             
