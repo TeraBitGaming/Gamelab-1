@@ -30,9 +30,9 @@ public class TouchDetector : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
-                dir = (Vector2)touch.position - (Vector2)pc.gameObject.transform.position;
+                dir = Camera.main.ScreenToWorldPoint(touch.position) - pc.gameObject.transform.position;
                 FindObjectOfType<PlayerCharacter>().Attack(dir);
-                print(dir);
+                //print(dir);
             }
         }
 #endif
