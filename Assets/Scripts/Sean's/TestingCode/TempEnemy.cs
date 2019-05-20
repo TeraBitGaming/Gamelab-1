@@ -49,6 +49,11 @@ public class TempEnemy : MonoBehaviour
     void Update()
     {
         FlipSprite();
+        rb2d.velocity = Vector2.zero;
+    }
+
+    private void FixedUpdate()
+    {
         ApproachPlayer();
     }
 

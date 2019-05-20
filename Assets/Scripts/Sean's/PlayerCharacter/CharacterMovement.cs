@@ -77,6 +77,11 @@ public class CharacterMovement : MonoBehaviour
         FlipPC();
     }
 
+    private void Update()
+    {
+        rb2d.velocity = Vector2.zero;
+    }
+
     /// <summary>
     /// Move the player based on the input of joystick. Ver 1.0.0
     /// </summary>
@@ -269,22 +274,22 @@ public class CharacterMovement : MonoBehaviour
             #endregion
             // add a slight spread to the gun.
 
-            dir = dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread));
-
             if(pc.usingWeapon.fireMode == Weapon.FireModes.Single)
             {
-                tbp.ShootTo(dir);
+                tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
             }else if(pc.usingWeapon.fireMode == Weapon.FireModes.ConeSpread)
             {
                 for(int i = 0; i < pc.usingWeapon.SpreadCount; i++)
                 {
-                    tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+                    tbp.ShootTo(dir + new Vector2(Random.Range(-2 * spread, 2 * spread), Random.Range(-2 * spread, 2 * spread)));
                 }
             }
             
             pc.magazine--;
 
-            rb2d.AddForce(-dir.normalized * Time.deltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
+            rb2d.AddForce(-dir.normalized * Time.deltaTime * 200000 * pc.usingWeapon.knockbackToPlayer);
+            //I don't know why this shit won't even move with such a velocity.
+            //rb2d.velocity = -dir.normalized * pc.usingWeapon.knockbackToPlayer * 100000;
 
             pS.PlayPS();
             pSH.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
