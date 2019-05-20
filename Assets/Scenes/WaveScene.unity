@@ -319,7 +319,7 @@ PrefabInstance:
         type: 3}
       propertyPath: usingWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 1699000514b7d1f4f94b96d97a861c7d,
+      objectReference: {fileID: 11400000, guid: f64af72ea4df2ea489f57f985755530c,
         type: 2}
     - target: {fileID: 196505844, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
       propertyPath: m_LocalScale.x
@@ -493,7 +493,7 @@ MonoBehaviour:
         m_MethodName: ChangeWeapon
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f64af72ea4df2ea489f57f985755530c,
+          m_ObjectArgument: {fileID: 11400000, guid: 50b15dc42503b2b4299e3fd48e7c800b,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Weapon, Assembly-CSharp
           m_IntArgument: 0
