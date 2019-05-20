@@ -35,35 +35,30 @@ public class CharacterMovement : MonoBehaviour
     //!
     private TempBulletPool tbp;
 
+    [SerializeField]
+    private int stdKB = 100000;
+
+    private Vector2 moveAmount;
+
    
     //here come wesley's additions!
     [SerializeField]
     private float spread = 0.5f;
 
-    [SerializeField]
-    private SmokeChainer pS;
+    private Audiomanager audioManager;
 
-    [SerializeField]
-    private Transform pSH;
+    // [SerializeField]
+    // private SmokeChainer pS;
 
-    [SerializeField]
-    private bool swipeMove;
-
-    [SerializeField]
-    private bool minigunMove = true;
-
-    [SerializeField]
-    private bool[] moveBools = new bool[] {false, false, false, false};
-    // leftMove; // 0
-    // upMove; // 1
-    // rightMove; // 2
-    // downMove; // 3
-
+    // [SerializeField]
+    // private Transform pSH;
 
     private void Awake()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
         pc = FindObjectOfType<PlayerCharacter>();
+
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
 
         //!
         tbp = FindObjectOfType<TempBulletPool>();
@@ -75,6 +70,8 @@ public class CharacterMovement : MonoBehaviour
         //pc.Attack();
         UpdateCooldown();
         FlipPC();
+
+        rb2d.AddForce(moveAmount, ForceMode2D.Force);
     }
 
     /// <summary>
@@ -82,13 +79,7 @@ public class CharacterMovement : MonoBehaviour
     /// </summary>
     public void MoveByJst(Vector2 mjst)
     {
-        Debug.Log("moveByJST is called");
-        
-        if(swipeMove == false){
-            rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
-
-            if (!minigunMove) { Movejst.gameObject.SetActive(true); };
-            if (minigunMove) { Movejst.gameObject.SetActive(false); }
+            // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
 
             if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
             {
@@ -119,65 +110,8 @@ public class CharacterMovement : MonoBehaviour
                 facingBack = false;
             }
 
-        }  else if(swipeMove == true){
-
-            Movejst.gameObject.SetActive(false);
-
-            Debug.Log("swipemove is true");
-
-            if (SwipeDetector.Instance.IsSwiping(Direction.left)){
-
-                changeDirectionBool(0);
-                
-                Debug.Log("left");
-            }
-            else if (SwipeDetector.Instance.IsSwiping(Direction.right)){
-
-                changeDirectionBool(1);
-
-                Debug.Log("right");
-            }
-            else if (SwipeDetector.Instance.IsSwiping(Direction.up)){
-
-                changeDirectionBool(2);
-                Debug.Log("up");
-            }
-            else if (SwipeDetector.Instance.IsSwiping(Direction.down)){
-
-                changeDirectionBool(3);
-                Debug.Log("down");
-            }
-            else if (SwipeDetector.Instance.IsSwiping(Direction.none)){
-                Debug.Log("no input detected");
-            }
-
-            
-            if(moveBools[0] == true){
-
-                mjst = Vector2.left;
-                facingRight = false;
-
-            
-            } else if (moveBools[1] == true){
-                
-                mjst = Vector2.right;
-                facingBack = true;
-            
-            } else if (moveBools[2] == true){
-                
-                
-                mjst = Vector2.up;
-                facingRight = true;
-            
-            } else if (moveBools[3] == true){
-                
-                mjst = Vector2.down;
-                facingBack = false;
-
-            }
-            rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+            // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
         }
-    }
 
     public void AttackByJst(Vector2 ajst, Weapon wp)
     {
@@ -231,10 +165,11 @@ public class CharacterMovement : MonoBehaviour
             tbp.ShootTo(ajst);
             pc.magazine--;
 
-            if (minigunMove) { rb2d.AddForce(-ajst * Time.deltaTime * 100000 * pc.usingWeapon.knockbackToPlayer); };
+            moveAmount = -ajst * Time.fixedDeltaTime * stdKB * pc.usingWeapon.knockbackToPlayer;
 
-            pS.PlayPS();
-            pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
+            // pS.PlayPS();
+            // pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
+
             cooldown = pc.usingWeapon.fireRate;
 
 
@@ -284,10 +219,11 @@ public class CharacterMovement : MonoBehaviour
             
             pc.magazine--;
 
-            rb2d.AddForce(-dir.normalized * Time.deltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
+            rb2d.AddForce(-dir.normalized * Time.fixedDeltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
 
-            pS.PlayPS();
-            pSH.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
+            // pS.PlayPS();
+            // pSH.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
+            audioManager.playSound(1);
             cooldown = pc.usingWeapon.fireRate;
         }
     }
@@ -318,20 +254,6 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             pc.GetComponent<Animator>().SetBool("facingBack", false);
-        }
-    }
-
-    private void changeDirectionBool(int SelectedBool){
-        if(SelectedBool != null){
-            for(int i = 0; i < moveBools.Length; i++){
-                if (i == SelectedBool){
-                    moveBools[i] = true;
-                }
-                else
-                {
-                    moveBools[i] = false;
-                }
-            }  
         }
     }
 }

@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Audiomanager : MonoBehaviour
 {
+    /*
+    
+    To play sounds, Call the function like this:
+
+    Audiomanager.playSound(sound number);
+    This will cause it to play a sound once.
+    More features like looping coming soon.
+    
+    */
+
+    private AudioSource source;
+
+    [SerializeField]
+    private float volume;
+
+    [SerializeField]
+    private AudioClip[] clipArray;
+
+
+    public void playSound(int soundNumber){
+        source.PlayOneShot(clipArray[soundNumber], volume);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        source = gameObject.GetComponent<AudioSource>();
     }
 }

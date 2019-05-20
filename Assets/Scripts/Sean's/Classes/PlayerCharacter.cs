@@ -22,6 +22,8 @@ public class PlayerCharacter : MonoBehaviour
     public int magazine;
     public float reloadTime;
 
+    private Audiomanager audioManager;
+
     private void Awake()
     {
         cm = FindObjectOfType<CharacterMovement>();
@@ -29,6 +31,8 @@ public class PlayerCharacter : MonoBehaviour
         reloadTime = usingWeapon.secCostForReloading;
         HP = 200;
         EG = 100;
+
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
     }
 
     private void Update()

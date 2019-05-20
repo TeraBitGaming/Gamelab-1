@@ -8,6 +8,7 @@ TagManager:
   - Spawn Point
   - Enemy
   - Shooter
+  - AudioManager
   layers:
   - Default
   - TransparentFX
