@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +29,13 @@ public class TempEnemy : MonoBehaviour
     [SerializeField]
     private bool isDead = true;
 
+    [SerializeField]
+    private float CD = 1;
+    private float currentCD = 0;
+
+    [SerializeField]
+    private bool isCollidingWithPC = false;
+
 
 
     private void Awake()
@@ -53,6 +61,7 @@ public class TempEnemy : MonoBehaviour
     void Update()
     {
         FlipSprite();
+        UpdateCD();
         rb2d.velocity = Vector2.zero;
     }
 
@@ -65,19 +74,42 @@ public class TempEnemy : MonoBehaviour
     {
         if(pc)
         {
-            if (Vector2.Distance(this.transform.position, pc.transform.position) < 38)
+            if (!isCollidingWithPC)
             {
                 rb2d.MovePosition(Vector2.MoveTowards(this.transform.position, pc.transform.position, moveSpeedEnemy));
             }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject == pc.gameObject)
+        if (collision.gameObject.GetComponent<PlayerCharacter>())
         {
-            pc.HP -= damage;
-            comboM.ResetCombo();
+            Attack(collision.gameObject.GetComponent<PlayerCharacter>());
+        }
+    }
+
+    private void Attack(PlayerCharacter pc)
+    {
+        if(currentCD <= 0)
+        {
+            DealDamageTo(pc);
+            currentCD = CD;
+            //Play attack animation
+        }
+    }
+
+    private void DealDamageTo(PlayerCharacter pc)
+    {
+        pc.HP -= damage;
+        comboM.ResetCombo();
+    }
+
+    private void UpdateCD()
+    {
+        if(currentCD > 0)
+        {
+            currentCD -= Time.deltaTime;
         }
     }
 
