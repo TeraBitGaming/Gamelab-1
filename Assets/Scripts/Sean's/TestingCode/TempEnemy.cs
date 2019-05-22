@@ -25,6 +25,9 @@ public class TempEnemy : MonoBehaviour
 
     public EnemyManager emye;
 
+    [SerializeField]
+    private bool isDead = true;
+
 
 
     private void Awake()
@@ -39,6 +42,7 @@ public class TempEnemy : MonoBehaviour
     private void OnEnable()
     {
         HP = HitPoint;
+        isDead = false;
     }
 
     void Start()
@@ -49,6 +53,11 @@ public class TempEnemy : MonoBehaviour
     void Update()
     {
         FlipSprite();
+        rb2d.velocity = Vector2.zero;
+    }
+
+    private void FixedUpdate()
+    {
         ApproachPlayer();
     }
 
@@ -74,10 +83,14 @@ public class TempEnemy : MonoBehaviour
 
     public void GetHit(int atk)
     {
-        this.HP -= atk;
-        if(this.HP <= 0)
+        if(!isDead)
         {
-           Die();
+            if (this.HP <= 0)
+            {
+                Die();
+            }
+            this.HP -= atk;
+            //print("Gethit is called");
         }
     }
 
@@ -110,12 +123,14 @@ public class TempEnemy : MonoBehaviour
 
     private void Die()
     {
-        comboM.AddToCombo();
+        isDead = true;
         Vector2 deathPos = new Vector2 (transform.position.x, transform.position.y);
         emyp.DeathAt(deathPos);
         this.HP = this.HitPoint;
         this.gameObject.SetActive(false);
         emyp.enemyPool.Add(this.gameObject);
         emye.enemiesOfCurrentWave.Remove(this.gameObject);
+        comboM.AddToCombo();
+        //print("Die is called");
     }
 }

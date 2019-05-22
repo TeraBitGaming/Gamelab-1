@@ -74,7 +74,7 @@ public class CharacterMovement : MonoBehaviour
         UpdateCooldown();
         FlipPC();
 
-        rb2d.AddForce(moveAmount, ForceMode2D.Force);
+        //rb2d.AddForce(moveAmount, ForceMode2D.Force);
     }
 
     /// <summary>
