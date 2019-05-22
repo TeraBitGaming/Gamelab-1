@@ -38,14 +38,20 @@ public class TempBulletPool : MonoBehaviour
 
     public void ShootTo(Vector2 dir)
     {
-        var bullet = BulletPool.Dequeue();
-        bullet.SetActive(true);
-        bullet.transform.position = FindObjectOfType<PlayerCharacter>().transform.position;
+        if(BulletPool.Count > 0)
+        {
+            var bullet = BulletPool.Dequeue();
+            bullet.SetActive(true);
+            bullet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            bullet.GetComponent<Rigidbody2D>().angularVelocity = 0;
 
-        float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            bullet.transform.position = FindObjectOfType<PlayerCharacter>().transform.position;
 
-        bullet.transform.rotation = Quaternion.AngleAxis(ang, Vector3.forward);
+            float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 50000 * Time.deltaTime);
+            bullet.transform.rotation = Quaternion.AngleAxis(ang, Vector3.forward);
+
+            bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 50000 * Time.deltaTime);
+        }
     }
 }
