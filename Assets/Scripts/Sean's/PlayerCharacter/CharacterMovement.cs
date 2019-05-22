@@ -218,6 +218,9 @@ public class CharacterMovement : MonoBehaviour
                 {
                     tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
                 }
+            }else if(pc.usingWeapon.fireMode == Weapon.FireModes.EnergyWeapon)
+            {
+                print("This type of weapon has not been implemented yet.");
             }
             
             pc.magazine--;
