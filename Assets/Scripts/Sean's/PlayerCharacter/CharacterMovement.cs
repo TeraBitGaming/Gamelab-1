@@ -50,8 +50,11 @@ public class CharacterMovement : MonoBehaviour
     // [SerializeField]
     // private SmokeChainer pS;
 
-    // [SerializeField]
-    // private Transform pSH;
+    [SerializeField]
+    private Transform gun;
+
+    [SerializeField]
+    private SpriteRenderer gun2;
 
     private void Awake()
     {
@@ -168,7 +171,7 @@ public class CharacterMovement : MonoBehaviour
             moveAmount = -ajst * Time.fixedDeltaTime * stdKB * pc.usingWeapon.knockbackToPlayer;
 
             // pS.PlayPS();
-            // pSH.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
+            gun.rotation = Quaternion.Euler((Mathf.Atan2(ajst.y, ajst.x) * Mathf.Rad2Deg) * -1, 90, 0);
 
             cooldown = pc.usingWeapon.fireRate;
 
@@ -222,7 +225,7 @@ public class CharacterMovement : MonoBehaviour
             rb2d.AddForce(-dir.normalized * Time.fixedDeltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
 
             // pS.PlayPS();
-            // pSH.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
+            gun.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
             audioManager.playSound(1);
             cooldown = pc.usingWeapon.fireRate;
         }
@@ -241,19 +244,23 @@ public class CharacterMovement : MonoBehaviour
         if(facingRight)
         {
             pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gun2.flipY = false;
         }
         else
         {
             pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            gun2.flipY = true;
         }
 
         if(facingBack)
         {
             pc.GetComponent<Animator>().SetBool("facingBack", true);
+            gun2.sortingOrder = 2;
         }
         else
         {
             pc.GetComponent<Animator>().SetBool("facingBack", false);
+            gun2.sortingOrder = 5;
         }
     }
 }
