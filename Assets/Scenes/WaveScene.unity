@@ -386,6 +386,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6253766570106555246, guid: 58836935cc97c5745be2e2c0ac4767c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3593467879220987921, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
@@ -3393,6 +3398,11 @@ PrefabInstance:
       propertyPath: InheritVelocityModule.m_Curve.minScalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 999529515064086978, guid: a1c8bd740fa9cd44d9ea11ce6e54c360,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c8bd740fa9cd44d9ea11ce6e54c360, type: 3}
 --- !u!4 &4391546351380843071 stripped
@@ -3407,22 +3417,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1111209907071189029}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &6687336871499447956
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6687336871499447955}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5
 --- !u!114 &6687336871499447957
 MonoBehaviour:
   m_ObjectHideFlags: 0
