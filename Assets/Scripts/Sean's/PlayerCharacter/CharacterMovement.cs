@@ -74,12 +74,15 @@ public class CharacterMovement : MonoBehaviour
         UpdateCooldown();
         FlipPC();
 
-        rb2d.AddForce(moveAmount, ForceMode2D.Force);
+        //rb2d.AddForce(moveAmount, ForceMode2D.Force);
     }
 
     /// <summary>
     /// Move the player based on the input of joystick. Ver 1.0.0
     /// </summary>
+    /// 
+    #region Not using code.
+
     public void MoveByJst(Vector2 mjst)
     {
             // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
@@ -180,6 +183,8 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    #endregion
+
     public void AttackByTouching(Vector2 dir)
     {
         if (cooldown <= 0)
@@ -207,17 +212,20 @@ public class CharacterMovement : MonoBehaviour
             #endregion
             // add a slight spread to the gun.
 
-            dir = dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread));
+            //dir = dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread));
 
             if(pc.usingWeapon.fireMode == Weapon.FireModes.Single)
             {
-                tbp.ShootTo(dir);
+                tbp.ShootTo(dir.normalized + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
             }else if(pc.usingWeapon.fireMode == Weapon.FireModes.ConeSpread)
             {
                 for(int i = 0; i < pc.usingWeapon.SpreadCount; i++)
                 {
-                    tbp.ShootTo(dir + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+                    tbp.ShootTo(dir.normalized + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
                 }
+            }else if(pc.usingWeapon.fireMode == Weapon.FireModes.EnergyWeapon)
+            {
+                print("This type of weapon has not been implemented yet.");
             }
             
             pc.magazine--;

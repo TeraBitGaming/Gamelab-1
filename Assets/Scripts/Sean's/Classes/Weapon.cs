@@ -19,7 +19,9 @@ public class Weapon : ScriptableObject
     public enum FireModes
     {
         Single,
-        ConeSpread
+        ConeSpread,
+        EnergyWeapon
     };
-    public int SpreadCount;
+    public int SpreadCount;//For ConSpread type weapon, default is 0.
+    public float SecCostForCharge;//For EnergyWeapon type weapon, defaul is 0.
 }
