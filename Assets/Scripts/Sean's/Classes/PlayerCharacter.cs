@@ -43,7 +43,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Move()
     {
-        cm.MoveByJst(mjst.value);
+        // cm.MoveByJst(mjst.value);
     }
 
     public void Attack(Vector2 dir)

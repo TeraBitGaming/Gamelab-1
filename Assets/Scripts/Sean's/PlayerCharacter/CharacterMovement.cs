@@ -83,41 +83,41 @@ public class CharacterMovement : MonoBehaviour
     /// 
     #region Not using code.
 
-    public void MoveByJst(Vector2 mjst)
-    {
-            // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+    // public void MoveByJst(Vector2 mjst)
+    // {
+    //         // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
 
-            if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
-            {
-                pc.gameObject.GetComponent<Animator>().SetBool("isWalking", true);
-            }
-            else
-            {
-                pc.gameObject.GetComponent<Animator>().SetBool("isWalking", false);
-            }
+    //         if(mjst.x > 0.01 || mjst.x < - 0.01 || mjst.y > 0.01 || mjst.y < -0.01)
+    //         {
+    //             pc.gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+    //         }
+    //         else
+    //         {
+    //             pc.gameObject.GetComponent<Animator>().SetBool("isWalking", false);
+    //         }
 
-            if (mjst.x > 0.1)
-            {
-                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-                facingRight = true;
-            }
-            if (mjst.x < -0.1)
-            {
-                //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-                facingRight = false;
-            }
+    //         if (mjst.x > 0.1)
+    //         {
+    //             //pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+    //             facingRight = true;
+    //         }
+    //         if (mjst.x < -0.1)
+    //         {
+    //             //pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+    //             facingRight = false;
+    //         }
 
-            if (mjst.y > 0.1)
-            {
-                facingBack = true;
-            }
-            if (mjst.y < -0.1)
-            {
-                facingBack = false;
-            }
+    //         if (mjst.y > 0.1)
+    //         {
+    //             facingBack = true;
+    //         }
+    //         if (mjst.y < -0.1)
+    //         {
+    //             facingBack = false;
+    //         }
 
-            // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
-        }
+    //         // rb2d.MovePosition((Vector2)this.transform.position +  mjst * Time.deltaTime * moveSpeed);
+    //     }
 
     public void AttackByJst(Vector2 ajst, Weapon wp)
     {
