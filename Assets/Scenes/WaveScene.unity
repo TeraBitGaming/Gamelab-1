@@ -2918,6 +2918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: []
+  vase: {fileID: 513726800}
 --- !u!50 &6687336871499447960
 Rigidbody2D:
   serializedVersion: 4
