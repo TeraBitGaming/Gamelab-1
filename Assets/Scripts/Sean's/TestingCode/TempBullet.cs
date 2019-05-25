@@ -15,7 +15,6 @@ public class TempBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Bullet Collided, checking...");
         if (collision.gameObject.GetComponent<TempEnemy>())
         {
             collision.gameObject.GetComponent<TempEnemy>().GetHit(pc.usingWeapon.damage);
@@ -26,9 +25,9 @@ public class TempBullet : MonoBehaviour
         {
 
         }
-        if (collision.gameObject.GetComponent<ExplodingScript>())
+        if (collision.gameObject.GetComponent<ExplodingScriptHPManager>())
         {
-            collision.gameObject.GetComponent<ExplodingScript>().GetHit(2);
+            collision.gameObject.GetComponent<ExplodingScriptHPManager>().HP -= 2;
         }
         else
         {

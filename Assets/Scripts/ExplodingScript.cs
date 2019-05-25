@@ -9,28 +9,10 @@ public class ExplodingScript : MonoBehaviour
     public List<GameObject> inRange = new List<GameObject>();
     private bool isDead = false;
     private ComboManager comboM;
+    private ParticleSystem particle;
 
     [SerializeField]
-    private int HP = 1;
-
-
-    public void GetHit(int atk)
-    {
-        Debug.Log("Gethit is called");
-        if(!isDead)
-        {
-            if (this.HP <= 0)
-            {
-                Die();
-            }
-            this.HP -= atk;
-        }
-    }
-
-    private void Die(){
-        isDead = true;
-        Explode();
-    }
+    private GameObject vase;
 
     private void Explode(){
 
@@ -47,19 +29,38 @@ public class ExplodingScript : MonoBehaviour
         }
     }
 
+    IEnumerator Die(){
+        particle.Play();
+        isDead = true;
+        Explode();
+        vase.SetActive(false);
+        
+        yield return new WaitForSeconds(particle.main.duration);
+        
+        particle.Stop();
+
+        yield return new WaitForSeconds(1.5f);
+
+        gameObject.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start(){
         pc = FindObjectOfType<PlayerCharacter>();
         comboM = FindObjectOfType<ComboManager>();
+        particle = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
-    void Update(){
-        
+    void Update(){        
+        if(!isDead){
+            if (FindObjectOfType<ExplodingScriptHPManager>().HP < 0){
+                StartCoroutine(Die());
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        Debug.Log(col.gameObject);
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy"){
             inRange.Add(col.gameObject);
         }
