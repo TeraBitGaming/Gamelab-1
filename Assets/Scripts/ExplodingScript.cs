@@ -10,16 +10,24 @@ public class ExplodingScript : MonoBehaviour
     private bool isDead = false;
     private ComboManager comboM;
     private ParticleSystem particle;
+    private bool awoken;
 
     [SerializeField]
     private GameObject vase;
+
+    [SerializeField]
+    private GameObject shards;
 
     private void Explode(){
 
         foreach(GameObject item in inRange){
             
             if(item.tag == "Enemy"){
-                item.GetComponent<TempEnemy>().GetHit(50);
+                if (item.GetComponent<TempEnemy>() != null){
+                    item.GetComponent<TempEnemy>().GetHit(50);
+                } else {
+                    item.GetComponent<ExplodingScriptHPManager>().HP -= 2;
+                }
             }
 
             if(item.tag == "Player"){
@@ -33,6 +41,7 @@ public class ExplodingScript : MonoBehaviour
         particle.Play();
         isDead = true;
         Explode();
+        shards.SetActive(true);
         vase.SetActive(false);
         
         yield return new WaitForSeconds(particle.main.duration);
@@ -49,6 +58,10 @@ public class ExplodingScript : MonoBehaviour
         pc = FindObjectOfType<PlayerCharacter>();
         comboM = FindObjectOfType<ComboManager>();
         particle = GetComponent<ParticleSystem>();
+    }
+    
+    void Awake(){
+        awoken = true;
     }
 
     // Update is called once per frame
@@ -69,6 +82,15 @@ public class ExplodingScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D col){
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy"){
             inRange.Remove(col.gameObject);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col){
+        if (awoken == true){
+            awoken = false;
+            if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy"){
+                inRange.Add(col.gameObject);
+            }
         }
     }
 }

@@ -54,7 +54,7 @@ public class CharacterMovement : MonoBehaviour
     private Transform gun;
 
     [SerializeField]
-    private SpriteRenderer gun2;
+    private GameObject gun2;
 
     private void Awake()
     {
@@ -251,24 +251,26 @@ public class CharacterMovement : MonoBehaviour
     {
         if(facingRight)
         {
+            gun2.transform.localPosition = new Vector3(0.1f, -0.25f, 0.4f);
             pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            gun2.flipY = false;
+            gun2.GetComponent<SpriteRenderer>().flipY = false;
         }
         else
         {
+            gun2.transform.localPosition = new Vector3(0.1f, 0.25f, 0.4f);
             pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            gun2.flipY = true;
+            gun2.GetComponent<SpriteRenderer>().flipY = true;
         }
 
         if(facingBack)
         {
             pc.GetComponent<Animator>().SetBool("facingBack", true);
-            gun2.sortingOrder = 2;
+            gun2.GetComponent<SpriteRenderer>().sortingOrder = 2;
         }
         else
         {
             pc.GetComponent<Animator>().SetBool("facingBack", false);
-            gun2.sortingOrder = 5;
+            gun2.GetComponent<SpriteRenderer>().sortingOrder = 5;
         }
     }
 }
