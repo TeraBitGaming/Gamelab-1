@@ -41,9 +41,8 @@ public class TempBulletPool : MonoBehaviour
         if(BulletPool.Count > 0)
         {
             var bullet = BulletPool.Dequeue();
+            var rb2db = bullet.GetComponent<Rigidbody2D>();
             bullet.SetActive(true);
-            bullet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            bullet.GetComponent<Rigidbody2D>().angularVelocity = 0;
 
             bullet.transform.position = FindObjectOfType<PlayerCharacter>().transform.position;
 
@@ -51,7 +50,7 @@ public class TempBulletPool : MonoBehaviour
 
             bullet.transform.rotation = Quaternion.AngleAxis(ang, Vector3.forward);
 
-            bullet.GetComponent<Rigidbody2D>().AddForce(dir.normalized * 50000 * Time.deltaTime);
+            rb2db.AddForce(dir.normalized * 50000 * Time.deltaTime);
         }
     }
 }

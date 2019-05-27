@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> enemiesOfCurrentWave = new List<GameObject>();
     [SerializeField]
     private List<Transform> spawnLocs = new List<Transform>();
+    [SerializeField]
+    private Animator waveAnimt;
+    [SerializeField]
+    private Text waveDisplay;
 
     private void Awake()
     {
@@ -37,6 +42,7 @@ public class EnemyManager : MonoBehaviour
         if(enemiesOfCurrentWave.Count == 0)
         {
             print("Current wave is: " + currentWave);
+            ShowWave();
             SpawnNewWave();
         }
     }
@@ -54,5 +60,11 @@ public class EnemyManager : MonoBehaviour
 
         currentWave++;
 
+    }
+
+    private void ShowWave()
+    {
+        waveDisplay.GetComponent<Text>().text = "Wave " + currentWave;
+        waveAnimt.SetTrigger("showWave");
     }
 }
