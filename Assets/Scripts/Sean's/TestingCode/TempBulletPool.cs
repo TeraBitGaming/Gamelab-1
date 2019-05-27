@@ -44,17 +44,6 @@ public class TempBulletPool : MonoBehaviour
             var rb2db = bullet.GetComponent<Rigidbody2D>();
             bullet.SetActive(true);
 
-            #region Reset Rigidbody
-            
-            rb2db.velocity = Vector2.zero;
-            rb2db.angularVelocity = 0;
-            rb2db.isKinematic = true;
-            rb2db.transform.position = Vector2.zero;
-            rb2db.transform.rotation = Quaternion.Euler(Vector2.zero);
-            rb2db.isKinematic = false;
-            
-            #endregion
-
             bullet.transform.position = FindObjectOfType<PlayerCharacter>().transform.position;
 
             float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

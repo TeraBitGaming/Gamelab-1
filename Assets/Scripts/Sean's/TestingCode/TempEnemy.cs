@@ -117,11 +117,11 @@ public class TempEnemy : MonoBehaviour
     {
         if(!isDead)
         {
+            this.HP -= atk;
             if (this.HP <= 0)
             {
                 Die();
             }
-            this.HP -= atk;
             //print("Gethit is called");
         }
     }
