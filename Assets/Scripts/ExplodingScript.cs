@@ -38,8 +38,12 @@ public class ExplodingScript : MonoBehaviour
     }
 
     IEnumerator Die(){
-        particle.Play();
+        
         isDead = true;
+        
+        yield return new WaitForSeconds(0.25f);
+
+        particle.Play();
         Explode();
         shards.SetActive(true);
         vase.SetActive(false);
@@ -67,7 +71,7 @@ public class ExplodingScript : MonoBehaviour
     // Update is called once per frame
     void Update(){        
         if(!isDead){
-            if (FindObjectOfType<ExplodingScriptHPManager>().HP < 0){
+            if (vase.GetComponent<ExplodingScriptHPManager>().HP < 0){
                 StartCoroutine(Die());
             }
         }

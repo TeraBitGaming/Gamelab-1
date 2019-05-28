@@ -234,7 +234,7 @@ public class CharacterMovement : MonoBehaviour
 
             // pS.PlayPS();
             gun.rotation = Quaternion.Euler((Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) * -1, 90, 0);
-            audioManager.playSound(1);
+            audioManager.playSound(0);
             cooldown = pc.usingWeapon.fireRate;
         }
     }
