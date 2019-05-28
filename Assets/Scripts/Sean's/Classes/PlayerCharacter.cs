@@ -12,11 +12,11 @@ public class PlayerCharacter : MonoBehaviour
     
     public CharacterMovement cm;
 
-    public JoyStick mjst;
-    public JoyStick ajst;
+    //public JoyStick mjst;
+    //public JoyStick ajst;
 
     public int HP;//Player Hitpoint.
-    public int EG;//Player Energe.
+    //public int EG;//Player Energe.
     
     public Weapon usingWeapon;
     public int magazine;
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
         magazine = usingWeapon.magazine;
         reloadTime = usingWeapon.secCostForReloading;
         HP = 200;
-        EG = 100;
+        //EG = 100;
 
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
     }

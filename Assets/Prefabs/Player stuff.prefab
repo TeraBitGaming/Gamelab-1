@@ -300,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289725013}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.589, y: -0.145, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0.25, z: 0.4}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 424990351}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 351115637}
   - component: {fileID: 351115640}
   - component: {fileID: 351115639}
-  - component: {fileID: 351115638}
+  - component: {fileID: 5227236899768484756}
   m_Layer: 5
   m_Name: Shotgun
   m_TagString: Untagged
@@ -439,7 +439,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 351115638}
+  m_TargetGraphic: {fileID: 5227236899768484756}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -457,7 +457,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &351115638
+--- !u!114 &5227236899768484756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,31 +466,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 351115636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 48
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Shotgun
+  m_Sprite: {fileID: 21300000, guid: 75bf75bb3a7925e44b927cf4701cac17, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!1 &424990350
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +829,7 @@ GameObject:
   - component: {fileID: 1184158381}
   - component: {fileID: 1184158384}
   - component: {fileID: 1184158383}
-  - component: {fileID: 1184158382}
+  - component: {fileID: 9164352202473723798}
   m_Layer: 5
   m_Name: Sniper
   m_TagString: Untagged
@@ -908,7 +903,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1184158382}
+  m_TargetGraphic: {fileID: 9164352202473723798}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -926,7 +921,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1184158382
+--- !u!114 &9164352202473723798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -935,33 +930,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184158380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 42
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 48
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Sniper
-
-'
+  m_Sprite: {fileID: 21300000, guid: 3ff916c08100f834eb4a8405d38d7eff, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!1 &1344700739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1232,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d2dd5632675d09942a4ac6e0f9aa5934, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f76d99369b1cf840b1b57a739c4700c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1821,7 +1809,6 @@ GameObject:
   - component: {fileID: 3593467879220987927}
   - component: {fileID: 3593467879220987924}
   - component: {fileID: 3593467879220987922}
-  - component: {fileID: 1992950548933665656}
   - component: {fileID: 3593467879220987925}
   - component: {fileID: 3593467879220987923}
   - component: {fileID: 408818532}
@@ -1937,18 +1924,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1992950548933665656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3593467879220987928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ab27d11b8bef2438154682f7b0f3d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3593467879220987925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,7 +1943,7 @@ MonoBehaviour:
   stdKB: 1000000
   spread: 0.2
   gun: {fileID: 424990351}
-  gun2: {fileID: 289725015}
+  gun2: {fileID: 289725013}
 --- !u!114 &3593467879220987923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,11 +1957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cm: {fileID: 0}
-  mjst: {fileID: 0}
-  ajst: {fileID: 0}
   HP: 0
-  EG: 0
-  usingWeapon: {fileID: 11400000, guid: f64af72ea4df2ea489f57f985755530c, type: 2}
+  usingWeapon: {fileID: 11400000, guid: 1699000514b7d1f4f94b96d97a861c7d, type: 2}
   magazine: 0
   reloadTime: 0
 --- !u!70 &408818532
