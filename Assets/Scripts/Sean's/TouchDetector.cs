@@ -17,10 +17,13 @@ public class TouchDetector : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0))
         {
-            //dir = (Vector2)Input.mousePosition - new Vector2(Screen.width / 2, Screen.height / 2);
-            dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - pc.gameObject.transform.position;
-            FindObjectOfType<PlayerCharacter>().Attack(dir);
-            //print(dir);
+            if (FindObjectOfType<PlayerCharacter>())
+            {
+                //dir = (Vector2)Input.mousePosition - new Vector2(Screen.width / 2, Screen.height / 2);
+                dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - pc.gameObject.transform.position;
+                FindObjectOfType<PlayerCharacter>().Attack(dir);
+                //print(dir);
+            }
         }
 #endif
 
@@ -30,10 +33,13 @@ public class TouchDetector : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if(touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
-                dir = Camera.main.ScreenToWorldPoint(touch.position) - pc.gameObject.transform.position;
-                // - new Vector2(Screen.width / 2, Screen.height / 2)
-                FindObjectOfType<PlayerCharacter>().Attack(dir);
-                //print(dir);
+                if(FindObjectOfType<PlayerCharacter>())
+                {
+                    dir = Camera.main.ScreenToWorldPoint(touch.position) - pc.gameObject.transform.position;
+                    // - new Vector2(Screen.width / 2, Screen.height / 2)
+                    FindObjectOfType<PlayerCharacter>().Attack(dir);
+                    //print(dir);
+                }
             }
         }
 #endif
