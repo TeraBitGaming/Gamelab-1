@@ -16,8 +16,9 @@ MonoBehaviour:
   damage: 100
   fireRate: 2
   knockbackToEnemy: 0.35
-  knockbackToPlayer: 0.4
+  knockbackToPlayer: 1
   magazine: 5
   secCostForReloading: 1
   fireMode: 0
   SpreadCount: 0
+  SecCostForCharge: 0

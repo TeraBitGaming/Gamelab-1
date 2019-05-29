@@ -16,6 +16,7 @@ public class PlayerCharacter : MonoBehaviour
     public JoyStick ajst;
 
     public int HP;//Player Hitpoint.
+    private int hpChecker;
     public int EG;//Player Energe.
     
     public Weapon usingWeapon;
@@ -24,6 +25,9 @@ public class PlayerCharacter : MonoBehaviour
 
     private Audiomanager audioManager;
 
+    [SerializeField]
+    private ParticleSystem bleed;
+
     private void Awake()
     {
         cm = FindObjectOfType<CharacterMovement>();
@@ -31,6 +35,7 @@ public class PlayerCharacter : MonoBehaviour
         reloadTime = usingWeapon.secCostForReloading;
         HP = 200;
         EG = 100;
+        hpChecker = HP;
 
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
     }
@@ -84,6 +89,10 @@ public class PlayerCharacter : MonoBehaviour
 
     private void HPCheck()
     {
+        if (hpChecker != HP){
+            hpChecker = HP;
+            bleed.Play();
+        }
         if (this.HP <= 0)
         {
             Die();
