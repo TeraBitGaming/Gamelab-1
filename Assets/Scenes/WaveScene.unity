@@ -4872,6 +4872,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &95250382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 289725013, guid: 58836935cc97c5745be2e2c0ac4767c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 235767787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &112500820
 GameObject:
   m_ObjectHideFlags: 0
@@ -24220,7 +24226,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gun2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 95250382}
     - target: {fileID: 3593467879220987923, guid: 58836935cc97c5745be2e2c0ac4767c1,
         type: 3}
       propertyPath: usingWeapon
@@ -24256,6 +24262,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424990351, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58836935cc97c5745be2e2c0ac4767c1, type: 3}
@@ -91775,15 +91785,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a0331b4a76d1a894b8af2d6a75f97c83, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 20
   MaxDistance: 50
@@ -116383,6 +116393,7 @@ GameObject:
   - component: {fileID: 1547326897}
   - component: {fileID: 1547326899}
   - component: {fileID: 1547326898}
+  - component: {fileID: 1547326900}
   m_Layer: 10
   m_Name: Camera
   m_TagString: MainCamera
@@ -116439,7 +116450,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 4.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -116455,6 +116466,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1547326900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547326896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb1c95577e01c6478199466c1b4190c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1552674925
 GameObject:
   m_ObjectHideFlags: 0
@@ -126390,7 +126413,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
