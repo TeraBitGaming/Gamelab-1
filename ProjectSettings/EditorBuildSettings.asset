@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/NotASecretScene.unity
+    guid: da3324300e188344786077a74f31e2be
+  - enabled: 1
     path: Assets/Scenes/WaveScene.unity
     guid: ce6bc3ec6420ea94bb4a643aa183ded7
   m_configObjects: {}
