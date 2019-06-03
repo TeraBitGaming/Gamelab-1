@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallbreakingScript : MonoBehaviour
 {
-    private int magnitude = 5;
+    private int magnitude = 4;
 
     [SerializeField]
     private GameObject parent;

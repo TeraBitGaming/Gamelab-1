@@ -7,10 +7,13 @@ public class ExplodingScript : MonoBehaviour
 
     private PlayerCharacter pc;
     public List<GameObject> inRange = new List<GameObject>();
+    public List<GameObject> IR = new List<GameObject>();
     private bool isDead = false;
     private ComboManager comboM;
     private ParticleSystem particle;
     private bool awoken;
+
+    private ShakyShaky shaker;
 
     [SerializeField]
     private GameObject vase;
@@ -19,8 +22,8 @@ public class ExplodingScript : MonoBehaviour
     private GameObject shards;
 
     private void Explode(){
-
-        foreach(GameObject item in inRange){
+        IR = inRange;
+        foreach(GameObject item in IR){
             
             if(item.tag == "Enemy"){
                 if (item.GetComponent<TempEnemy>() != null){
@@ -35,14 +38,12 @@ public class ExplodingScript : MonoBehaviour
                 pc.HP -= 30;
             }
         }
+
+        StartCoroutine(shaker.Shake(0.5f, 0.75f));
     }
 
-    IEnumerator Die(){
+    private IEnumerator Die(){
         
-        isDead = true;
-        
-        yield return new WaitForSeconds(0.01f);
-
         particle.Play();
         Explode();
         shards.SetActive(true);
@@ -59,6 +60,7 @@ public class ExplodingScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+        shaker = FindObjectOfType<ShakyShaky>();
         pc = FindObjectOfType<PlayerCharacter>();
         comboM = FindObjectOfType<ComboManager>();
         particle = GetComponent<ParticleSystem>();
@@ -72,6 +74,7 @@ public class ExplodingScript : MonoBehaviour
     void Update(){        
         if(!isDead){
             if (vase.GetComponent<ExplodingScriptHPManager>().HP < 0){
+                isDead = true;
                 StartCoroutine(Die());
             }
         }

@@ -49,7 +49,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnNewWave()
     {
-        enemiesCountForCurrentWave = currentWave * 3 - 1;
+        enemiesCountForCurrentWave = currentWave * 5 - 1;
 
         for (int i = 0; i < enemiesCountForCurrentWave; i++)
         {

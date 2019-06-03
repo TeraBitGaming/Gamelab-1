@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShakyShaky : MonoBehaviour
 {
-    //This script is largely a Brackey's script, found here: https://www.youtube.com/watch?v=9A9yj8KnM8c
+
     private Vector3 originalPosition;
 
     void Start(){
