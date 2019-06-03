@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: DualPistol
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  damage: 15
-  fireRate: 0.33
-  knockbackToEnemy: 0.25
-  knockbackToPlayer: 0.25
-  magazine: 16
+  damage: 30
+  fireRate: 0.2
+  knockbackToEnemy: 0.15
+  knockbackToPlayer: 0.5
+  magazine: 32
   secCostForReloading: 1
   fireMode: 0
-  SpreadCount: 0
+  SpreadCount: 1
+  SecCostForCharge: 0

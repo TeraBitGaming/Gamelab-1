@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705d6e5daa1264d4db198e7aae30e8b8, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  damage: 15
-  fireRate: 1
-  knockbackToEnemy: 0.35
-  knockbackToPlayer: 1
-  magazine: 8
+  image: {fileID: 21300000, guid: 75bf75bb3a7925e44b927cf4701cac17, type: 3}
+  damage: 20
+  fireRate: 0.8
+  knockbackToEnemy: 0.52
+  knockbackToPlayer: 1.5
+  magazine: 12
   secCostForReloading: 2
   fireMode: 1
-  SpreadCount: 8
+  SpreadCount: 10
+  SecCostForCharge: 0

@@ -10,7 +10,7 @@ public class Weapon : ScriptableObject
     public float fireRate;
     [Range(0,1)]
     public float knockbackToEnemy;
-    [Range(0,1)]
+    [Range(0,2)]
     public float knockbackToPlayer;
     public int magazine;
     public float secCostForReloading;

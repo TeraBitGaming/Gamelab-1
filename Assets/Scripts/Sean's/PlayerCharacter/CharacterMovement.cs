@@ -73,6 +73,7 @@ public class CharacterMovement : MonoBehaviour
         //pc.Attack();
         UpdateCooldown();
         FlipPC();
+        gun2.GetComponent<SpriteRenderer>().color = new Color(1, (float)pc.magazine / pc.usingWeapon.magazine, (float)pc.magazine / pc.usingWeapon.magazine);
 
         //rb2d.AddForce(moveAmount, ForceMode2D.Force);
     }
@@ -170,6 +171,7 @@ public class CharacterMovement : MonoBehaviour
 
             tbp.ShootTo(ajst);
             pc.magazine--;
+            
 
             moveAmount = -ajst * Time.fixedDeltaTime * stdKB * pc.usingWeapon.knockbackToPlayer;
 
@@ -228,7 +230,11 @@ public class CharacterMovement : MonoBehaviour
                 print("This type of weapon has not been implemented yet.");
             }
             
+            StartCoroutine(FindObjectOfType<ShakyShaky>().Shake(0.05f, pc.usingWeapon.knockbackToPlayer / 2));
+
             pc.magazine--;
+
+            Debug.Log((float)pc.magazine / pc.usingWeapon.magazine * 255);
 
             rb2d.AddForce(-dir.normalized * Time.fixedDeltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
 
@@ -249,15 +255,16 @@ public class CharacterMovement : MonoBehaviour
 
     private void FlipPC()
     {
+        
         if(facingRight)
         {
-            gun2.transform.localPosition = new Vector3(0.1f, -0.25f, 0.4f);
+            gun2.transform.localPosition = new Vector3(0.1f, -0.15f, 0.4f);
             pc.gameObject.GetComponent<SpriteRenderer>().flipX = false;
             gun2.GetComponent<SpriteRenderer>().flipY = false;
         }
         else
         {
-            gun2.transform.localPosition = new Vector3(0.1f, 0.25f, 0.4f);
+            gun2.transform.localPosition = new Vector3(0.1f, 0.15f, 0.4f);
             pc.gameObject.GetComponent<SpriteRenderer>().flipX = true;
             gun2.GetComponent<SpriteRenderer>().flipY = true;
         }
