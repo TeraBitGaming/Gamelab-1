@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4262365450291632342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4262365450291632336}
+  - component: {fileID: 4262365450291632337}
+  m_Layer: 0
+  m_Name: PyramidTotems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4262365450291632336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262365450291632342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4262365449296086705}
+  - {fileID: 4262365450392932407}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4262365450291632337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262365450291632342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671f5efb4f4412c47bcdd4f4a8027905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4262365450392932404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4262365450392932407}
+  - component: {fileID: 4262365450392932406}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4262365450392932407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262365450392932404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4262365450291632336}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4262365450392932406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262365450392932404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1ea43d92bb64844be984a8441e2423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolCapacity: 10
+  dmgPerProjectile: 10
+  ProjectilePrefab: {fileID: 7977051582367485068, guid: b9a42148d0a027c4ab0327d2269ed131,
+    type: 3}
+  velocity: 10
+--- !u!1001 &1422961261577466703
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4262365450291632336}
+    m_Modifications:
+    - target: {fileID: 2925555737382254075, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_Name
+      value: PyramidTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34, type: 3}
+--- !u!4 &4262365449296086705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2925555737382254078, guid: ed762adbaaa1f6b4d8b2c04cc55d5d34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422961261577466703}
+  m_PrefabAsset: {fileID: 0}

@@ -7,9 +7,23 @@ public class TouchDetector : MonoBehaviour
     private Vector2 dir;
     private PlayerCharacter pc;
 
+    [SerializeField]
+    private GameObject tutorial;
+
     private void Start()
     {
         pc = FindObjectOfType<PlayerCharacter>();
+    }
+
+    private bool showTutorial = true;
+
+    private void fadeTutorialOut()
+    {
+        if(showTutorial == true)
+        {
+            showTutorial = false;
+            tutorial.GetComponent<Animator>().SetTrigger("fadeOutTutorial");
+        }
     }
 
     private void Update()
@@ -19,6 +33,7 @@ public class TouchDetector : MonoBehaviour
         {
             if (FindObjectOfType<PlayerCharacter>())
             {
+                fadeTutorialOut();
                 //dir = (Vector2)Input.mousePosition - new Vector2(Screen.width / 2, Screen.height / 2);
                 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - pc.gameObject.transform.position;
                 FindObjectOfType<PlayerCharacter>().Attack(dir);
@@ -35,6 +50,7 @@ public class TouchDetector : MonoBehaviour
             {
                 if(FindObjectOfType<PlayerCharacter>())
                 {
+                    fadeTutorialOut();
                     dir = Camera.main.ScreenToWorldPoint(touch.position) - pc.gameObject.transform.position;
                     // - new Vector2(Screen.width / 2, Screen.height / 2)
                     FindObjectOfType<PlayerCharacter>().Attack(dir);
