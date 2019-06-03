@@ -27,6 +27,9 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem bleed;
+    
+    [SerializeField]
+    private SpriteRenderer gunRenderer;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class PlayerCharacter : MonoBehaviour
         reloadTime = usingWeapon.secCostForReloading;
         HP = 200;
         hpChecker = HP;
+        gunRenderer.sprite = usingWeapon.image;
         //EG = 100;
 
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
@@ -109,5 +113,6 @@ public class PlayerCharacter : MonoBehaviour
         this.usingWeapon = weapon;
         magazine = usingWeapon.magazine;
         reloadTime = usingWeapon.secCostForReloading;
+        gunRenderer.sprite = usingWeapon.image;
     }
 }
