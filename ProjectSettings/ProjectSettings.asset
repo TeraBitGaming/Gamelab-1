@@ -254,8 +254,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: Keystore/user.keystore'
-  AndroidKeyaliasName: cold one
+  AndroidKeystoreName: '{inproject}: Keystore/New.keystore'
+  AndroidKeyaliasName: the cold one
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
