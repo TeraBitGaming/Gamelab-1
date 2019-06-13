@@ -9,6 +9,9 @@ public class DeathChecker : MonoBehaviour
     
     private Animator anim;
 
+    [SerializeField]
+    private Text text;
+
     void Start(){
         anim = GetComponent<Animator>();
     }
@@ -20,6 +23,8 @@ public class DeathChecker : MonoBehaviour
         if(pc.activeSelf == false){
             anim.SetBool("isDead", true);
             anim.gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);
+            text = GetComponent<ComboManager>().combo;
+
             // StartCoroutine(GetComponent<LoadScene>().ReloadScene(5));
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComboManager : MonoBehaviour
 {
-    private int combo = 0;
+    public int combo = 0;
 
     [SerializeField]
     private Sprite[] numbers;
@@ -24,12 +24,13 @@ public class ComboManager : MonoBehaviour
 
     public void AddToCombo(){
         combo += 1;
-        CalculateComboNumbers(combo);
+        // CalculateComboNumbers(combo);
     }
 
     public void ResetCombo(){
-        combo = 0;
-        CalculateComboNumbers(combo);
+        // Deprecated feature.
+        // combo = 0;
+        // CalculateComboNumbers(combo);
     }
 
     private void CalculateComboNumbers(int combo){
