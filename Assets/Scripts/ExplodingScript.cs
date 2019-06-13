@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ExplodingScript : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class ExplodingScript : MonoBehaviour
 
     private void Explode(){
         IR = inRange;
-        foreach(GameObject item in IR){
+        foreach(GameObject item in IR.ToList()){
             
             if(item.tag == "Enemy"){
                 if (item.GetComponent<TempEnemy>() != null){

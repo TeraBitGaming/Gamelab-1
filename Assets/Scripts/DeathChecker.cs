@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeathChecker : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class DeathChecker : MonoBehaviour
     private Animator anim;
 
     [SerializeField]
-    private Text text;
+    private Text textField;
+
+    [SerializeField]
+    private ComboManager cm;
+
+    [SerializeField]
+    private GameObject endScreen;
 
     void Start(){
         anim = GetComponent<Animator>();
@@ -23,9 +30,8 @@ public class DeathChecker : MonoBehaviour
         if(pc.activeSelf == false){
             anim.SetBool("isDead", true);
             anim.gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);
-            text = GetComponent<ComboManager>().combo;
-
-            // StartCoroutine(GetComponent<LoadScene>().ReloadScene(5));
+            endScreen.SetActive(true);
+            textField.text = cm.GetCombo();
         }
     }
 }
