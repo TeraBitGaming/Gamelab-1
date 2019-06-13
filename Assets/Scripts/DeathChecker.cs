@@ -20,7 +20,7 @@ public class DeathChecker : MonoBehaviour
         if(pc.activeSelf == false){
             anim.SetBool("isDead", true);
             anim.gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);
-            StartCoroutine(GetComponent<LoadScene>().ReloadScene(5));
+            // StartCoroutine(GetComponent<LoadScene>().ReloadScene(5));
         }
     }
 }
