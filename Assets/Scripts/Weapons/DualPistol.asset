@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705d6e5daa1264d4db198e7aae30e8b8, type: 3}
   m_Name: DualPistol
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: fd3855855fdb2b5489ee56bfec4d9820, type: 3}
   damage: 30
   fireRate: 0.2
   knockbackToEnemy: 0.15

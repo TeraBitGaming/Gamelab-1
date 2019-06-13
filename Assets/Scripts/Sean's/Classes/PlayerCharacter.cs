@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerCharacter : MonoBehaviour
 
     public int HP;//Player Hitpoint.
     private int hpChecker;
+    
+    [SerializeField]
+    private Image hpScreen;
+
     public int EG;//Player Energe.
     
     public Weapon usingWeapon;
@@ -96,6 +101,8 @@ public class PlayerCharacter : MonoBehaviour
         if (hpChecker != HP){
             hpChecker = HP;
             bleed.Play();
+            hpScreen.color = new Color(1, 0, 0, (float)1 - (float)HP/200);
+
         }
         if (this.HP <= 0)
         {

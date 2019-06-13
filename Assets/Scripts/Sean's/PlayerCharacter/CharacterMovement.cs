@@ -234,7 +234,7 @@ public class CharacterMovement : MonoBehaviour
 
             pc.magazine--;
 
-            Debug.Log((float)pc.magazine / pc.usingWeapon.magazine * 255);
+            // Debug.Log((float)pc.magazine / pc.usingWeapon.magazine * 255);
 
             rb2d.AddForce(-dir.normalized * Time.fixedDeltaTime * 100000 * pc.usingWeapon.knockbackToPlayer);
 
