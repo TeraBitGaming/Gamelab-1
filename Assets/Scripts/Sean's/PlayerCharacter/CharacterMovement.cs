@@ -221,7 +221,7 @@ public class CharacterMovement : MonoBehaviour
                 tbp.ShootTo(dir.normalized + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
             }else if(pc.usingWeapon.fireMode == Weapon.FireModes.ConeSpread)
             {
-                for(int i = 0; i < pc.usingWeapon.SpreadCount; i++)
+                for(int i = 0; i < pc.usingWeapon.BulletPerShot; i++)
                 {
                     tbp.ShootTo(dir.normalized + new Vector2(Random.Range(-spread, spread), Random.Range(-spread, spread)));
                 }

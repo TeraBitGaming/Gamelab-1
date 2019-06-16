@@ -34,4 +34,9 @@ public class DeathChecker : MonoBehaviour
             textField.text = cm.GetCombo();
         }
     }
+
+    public void CallAd()
+    {
+        FindObjectOfType<ADsManager>().ShowAd();
+    }
 }
