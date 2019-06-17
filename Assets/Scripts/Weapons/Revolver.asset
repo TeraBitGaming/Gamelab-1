@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  damage: 50
+  damage: 30
   fireRate: 0.1
   knockbackToEnemy: 0.25
   knockbackToPlayer: 0.5
-  magazine: 6
-  secCostForReloading: 1
+  magazine: 12
+  secCostForReloading: 1.5
   fireMode: 0
   SpreadCount: 0
   SecCostForCharge: 0

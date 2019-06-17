@@ -21,8 +21,11 @@ public class TouchDetector : MonoBehaviour
     {
         if(showTutorial == true)
         {
-            showTutorial = false;
-            tutorial.GetComponent<Animator>().SetTrigger("fadeOutTutorial");
+            if(tutorial)
+            {
+                showTutorial = false;
+                tutorial.GetComponent<Animator>().SetTrigger("fadeOutTutorial");
+            }
         }
     }
 

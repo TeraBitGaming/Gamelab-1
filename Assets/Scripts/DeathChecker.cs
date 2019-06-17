@@ -46,4 +46,9 @@ public class DeathChecker : MonoBehaviour
             Debug.Log(PlayerPrefs.GetInt("Money"));
         }
     }
+
+    public void CallAd()
+    {
+        FindObjectOfType<ADsManager>().ShowAd();
+    }
 }
