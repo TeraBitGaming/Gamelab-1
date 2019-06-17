@@ -36,9 +36,15 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField]
     private SpriteRenderer gunRenderer;
 
+    [SerializeField]
+    private Weapon[] weapons;
+
     private void Awake()
     {
         cm = FindObjectOfType<CharacterMovement>();
+
+        usingWeapon = weapons[PlayerPrefs.GetInt("WeaponInt")];
+
         magazine = usingWeapon.magazine;
         reloadTime = usingWeapon.secCostForReloading;
         HP = 200;
@@ -80,6 +86,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             magazine = usingWeapon.magazine;
             reloadTime = usingWeapon.secCostForReloading;
+            audioManager.playSound(10);
         }
     }
 
@@ -101,6 +108,7 @@ public class PlayerCharacter : MonoBehaviour
         if (hpChecker != HP){
             hpChecker = HP;
             bleed.Play();
+            audioManager.playSound(9);
             hpScreen.color = new Color(1, 0, 0, (float)1 - (float)HP/200);
 
         }
@@ -112,6 +120,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Die()
     {
+        audioManager.playSound(8);
         this.gameObject.SetActive(false);
     }
 

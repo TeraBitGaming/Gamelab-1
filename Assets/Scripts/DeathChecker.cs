@@ -40,7 +40,7 @@ public class DeathChecker : MonoBehaviour
             anim.SetBool("isDead", true);
             anim.gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);
             endScreen.SetActive(true);
-            textField.text = cm.GetCombo();
+            textField.text = cm.GetCombo() + " kills!";
 
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + cm.GetComboInt());
             Debug.Log(PlayerPrefs.GetInt("Money"));

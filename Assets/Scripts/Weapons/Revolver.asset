@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705d6e5daa1264d4db198e7aae30e8b8, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  damage: 30
+  name: Revolver
+  image: {fileID: 21300000, guid: dbe54eebb3a5ba045aaf4ef0c3c3b82b, type: 3}
+  damage: 60
   fireRate: 0.1
   knockbackToEnemy: 0.25
   knockbackToPlayer: 0.5
-  magazine: 12
+  magazine: 6
   secCostForReloading: 1.5
   fireMode: 0
-  SpreadCount: 0
+  BulletPerShot: 0
   SecCostForCharge: 0
+  purchaseCost: 0

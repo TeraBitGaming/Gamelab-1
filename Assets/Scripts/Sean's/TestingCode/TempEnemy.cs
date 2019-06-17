@@ -36,6 +36,10 @@ public class TempEnemy : MonoBehaviour
     [SerializeField]
     private bool isCollidingWithPC = false;
 
+    private Audiomanager audioManager;
+
+    [SerializeField]
+    private bool beetle;
 
 
     private void Awake()
@@ -45,6 +49,7 @@ public class TempEnemy : MonoBehaviour
         comboM = FindObjectOfType<ComboManager>();
         emyp = FindObjectOfType<EnemyPool>();
         emye = FindObjectOfType<EnemyManager>();
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
     }
 
     private void OnEnable()
@@ -95,6 +100,11 @@ public class TempEnemy : MonoBehaviour
         {
             DealDamageTo(pc);
             currentCD = CD;
+            if(beetle != true){
+                audioManager.playSound(7);
+            } else {
+                // there is no roach-attack sound.
+            }
             //Play attack animation
         }
     }
@@ -155,6 +165,11 @@ public class TempEnemy : MonoBehaviour
 
     private void Die()
     {
+        if(beetle != true){
+                audioManager.playSound(6);
+            } else {
+                audioManager.playSound(12);
+            }
         isDead = true;
         Vector2 deathPos = new Vector2 (transform.position.x, transform.position.y);
         emyp.DeathAt(deathPos);

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/NotASecretScene.unity
     guid: da3324300e188344786077a74f31e2be
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b4a59acb5b819624ea4efdcbf5055723
+  - enabled: 1
     path: Assets/Scenes/WaveScene.unity
     guid: 405442685b9d94444bf370343307ffcd
+  - enabled: 1
+    path: Assets/Scenes/StoreMenu.unity
+    guid: 7935f092892c0bb4f9499112fb98ed36
   m_configObjects: {}

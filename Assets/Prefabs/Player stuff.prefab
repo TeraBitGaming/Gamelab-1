@@ -5962,20 +5962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combo: 0
-  numbers:
-  - {fileID: 21300000, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300002, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300004, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300006, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300008, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300010, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300012, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300014, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300016, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  - {fileID: 21300018, guid: 2bf170d6851927f428dbd4d667afe808, type: 3}
-  Sprite1: {fileID: 0}
-  Sprite2: {fileID: 0}
-  Sprite3: {fileID: 0}
 --- !u!1 &2041209379
 GameObject:
   m_ObjectHideFlags: 0
@@ -6581,11 +6567,12 @@ MonoBehaviour:
   HP: 0
   hpScreen: {fileID: 1907418609}
   EG: 0
-  usingWeapon: {fileID: 11400000, guid: ef4af132be5fc684ea3a04f5c4585ca8, type: 2}
+  usingWeapon: {fileID: 11400000, guid: 6e7da3b094457764c8434186fc0e8f6f, type: 2}
   magazine: 0
   reloadTime: 0
   bleed: {fileID: 136425048}
   gunRenderer: {fileID: 289725015}
+  weapons: []
 --- !u!70 &408818532
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6824,6 +6811,7 @@ MonoBehaviour:
   textField: {fileID: 0}
   cm: {fileID: 0}
   endScreen: {fileID: 0}
+  wipe: 0
 --- !u!114 &235767789
 MonoBehaviour:
   m_ObjectHideFlags: 0

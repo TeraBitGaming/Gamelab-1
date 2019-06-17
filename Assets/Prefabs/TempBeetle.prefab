@@ -150,6 +150,7 @@ MonoBehaviour:
   isDead: 1
   CD: 1
   isCollidingWithPC: 0
+  beetle: 1
 --- !u!95 &5824691408844989632
 Animator:
   serializedVersion: 3

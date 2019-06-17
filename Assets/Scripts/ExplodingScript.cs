@@ -22,7 +22,10 @@ public class ExplodingScript : MonoBehaviour
     [SerializeField]
     private GameObject shards;
 
+    private Audiomanager audioManager;
+
     private void Explode(){
+        audioManager.playSound(3);
         IR = inRange;
         foreach(GameObject item in IR.ToList()){
             
@@ -65,6 +68,7 @@ public class ExplodingScript : MonoBehaviour
         pc = FindObjectOfType<PlayerCharacter>();
         comboM = FindObjectOfType<ComboManager>();
         particle = GetComponent<ParticleSystem>();
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<Audiomanager>();
     }
     
     void Awake(){

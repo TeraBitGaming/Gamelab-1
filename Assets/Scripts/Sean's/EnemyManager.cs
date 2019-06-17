@@ -20,6 +20,8 @@ public class EnemyManager : MonoBehaviour
     private Animator waveAnimt;
     [SerializeField]
     private Text waveDisplay;
+    [SerializeField]
+    private PlayerCharacter pc;
 
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnNewWave()
     {
-        enemiesCountForCurrentWave = currentWave * 5 - 1;
+        enemiesCountForCurrentWave = currentWave * 3 - 1;
 
         for (int i = 0; i < enemiesCountForCurrentWave; i++)
         {
@@ -66,5 +68,6 @@ public class EnemyManager : MonoBehaviour
     {
         waveDisplay.GetComponent<Text>().text = "Wave " + currentWave;
         waveAnimt.SetTrigger("showWave");
+        pc.HP = 200;
     }
 }
