@@ -23,4 +23,9 @@ public class ComboManager : MonoBehaviour
     {
         return combo.ToString();
     }
+
+    public int GetComboInt()
+    {
+        return combo;
+    }
 }
